@@ -1,0 +1,270 @@
+# =============================================================================
+# ESP Scale — Home Assistant : automatisations
+# =============================================================================
+# Logique (archi "poids = référence") :
+#   - scale_poids (publié par la balance) EST le stock. Pas de comptable kg.
+#   - chaque BAISSE de scale_poids → conso : cumul + décrément de la valeur €
+#   - scale/refill/event → valeur € += coût réel ; refill sauvage (bag_count=0)
+#     → valeur € += added_kg × prix moyen courant
+#   - silo faible → notification push
+#
+# Le poids (kg) vient de la balance (jauge fiable, cliquet « gel au mini »).
+# La VALEUR € est le seul état comptable côté HA : elle se déduit des refills
+# (coût réel) et se consomme au prix moyen pondéré.
+#
+# NB: les entity_id MQTT/templates sont francisés par HA (scale_poids,
+# scale_erreur, ...) car un name: français est fourni.
+
+automation:
+
+  # ---------------------------------------------------------------------------
+  # A. Accumuler la conso + décrémenter la valeur € à chaque BAISSE de poids
+  # ---------------------------------------------------------------------------
+  - alias: "Scale - Accumuler conso + valeur"
+    id: scale_accumulate
+    trigger:
+      - platform: state
+        entity_id: sensor.scale_poids
+    condition:
+      # Donnée fiable (pas d'erreur capteur / dedock)
+      - condition: state
+        entity_id: binary_sensor.scale_erreur
+        state: "off"
+    action:
+      - variables:
+          new_w: "{{ trigger.to_state.state | float(0) }}"
+          # from_state peut manquer sur le tout premier déclenchement
+          # (NB: en automation state trigger → from_state/to_state)
+          old_w: "{{ trigger.from_state.state | float(0) if trigger.from_state is not none else 0 }}"
+          delta: "{{ new_w - old_w }}"
+      # Baisse = consommation, seulement si l'ancien poids était connu (> 0)
+      - if:
+          - condition: template
+            value_template: "{{ old_w > 0 and delta < 0 }}"
+        then:
+          # Compteur conso cumulée (kg) — arrondi 2 déc.
+          - service: input_number.set_value
+            target: { entity_id: input_number.scale_consumption_total_kg }
+            data:
+              value: "{{ (states('input_number.scale_consumption_total_kg') | float(0) + (-delta)) | round(2) }}"
+          # Compteur coût cumulé (€) = kg × prix unitaire courant
+          # (source des utility_meter € — alimente les histogrammes coût)
+          - service: input_number.set_value
+            target: { entity_id: input_number.scale_consumption_total_eur }
+            data:
+              value: >
+                {{ (states('input_number.scale_consumption_total_eur') | float(0)
+                    + (-delta)
+                      * states('input_number.scale_unit_price_eur_kg') | float(0)) | round(2) }}
+          # Valeur du stock -= conso × prix unitaire courant (moyen pondéré)
+          - service: input_number.set_value
+            target: { entity_id: input_number.scale_stock_value_eur }
+            data:
+              value: >
+                {{ (states('input_number.scale_stock_value_eur') | float(0)
+                    + delta
+                      * states('input_number.scale_unit_price_eur_kg') | float(0)) | round(2) }}
+
+  # ---------------------------------------------------------------------------
+  # B. Refill déclaré (scale/refill/event) : valeur € += coût réel + journal
+  # ---------------------------------------------------------------------------
+  # Le stock kg n'est PAS touché : le poids publié par la balance (déjà monté)
+  # fait foi. L'event ne gère que la VALEUR € et le journal.
+  - alias: "Scale - Remplissage déclaré"
+    id: scale_refill
+    trigger:
+      - platform: mqtt
+        topic: "scale/refill/event"
+    action:
+      - variables:
+          # Coût du lot : déclaré (sacs × prix) OU sauvage (kg × prix moyen)
+          nb: "{{ trigger.payload_json.bag_count | int(0) }}"
+          px: "{{ trigger.payload_json.bag_price_eur | float(0) }}"
+          kg: "{{ trigger.payload_json.added_kg | float(0) }}"
+          wild: "{{ trigger.payload_json.bag_count | int(0) == 0 }}"
+          cout_lot: >-
+            {% if trigger.payload_json.bag_count | int(0) > 0 %}
+              {{ trigger.payload_json.bag_count * trigger.payload_json.bag_price_eur }}
+            {% else %}
+              {{ kg * states('input_number.scale_unit_price_eur_kg') | float(0) }}
+            {% endif %}
+      # Valeur du stock += coût du lot (arrondi 2 déc.)
+      - service: input_number.set_value
+        target: { entity_id: input_number.scale_stock_value_eur }
+        data:
+          value: "{{ (states('input_number.scale_stock_value_eur') | float(0) + cout_lot) | round(2) }}"
+      # Journal : entrée sur 2 lignes (date puis détail), entrées séparées
+      # par une ligne vide, plus récentes en premier (~15 max).
+      - variables:
+          ligne: >-
+            {% set ts = now().strftime('%d/%m/%Y %H:%M') %}
+            {% set tot = cout_lot | round(2) %}
+            {% if wild %}
+              {{ ts ~ ' — +' ~ kg ~ ' kg (appoint détecté)\n    valorisé au prix moyen : ' ~ tot ~ ' €' }}
+            {% else %}
+              {{ ts ~ ' — +' ~ kg ~ ' kg\n    ' ~ nb ~ ' sacs à ' ~ px ~ ' €/sac = ' ~ tot ~ ' €' }}
+            {% endif %}
+          detail: >-
+            {% set tot = cout_lot | round(2) %}
+            {% if wild %}
+              +{{ kg }} kg (appoint détecté, {{ tot }} €)
+            {% else %}
+              +{{ kg }} kg — {{ nb }} sacs à {{ px }} €/sac ({{ tot }} €)
+            {% endif %}
+      - service: input_text.set_value
+        target: { entity_id: input_text.scale_refill_journal }
+        data:
+          value: >
+            {% set j = states('input_text.scale_refill_journal') %}
+            {% if j in ['unknown', 'unavailable', 'none'] or j | length == 0 %}
+              {{ ligne }}
+            {% else %}
+              {% set entrées = j.split('\n\n') %}
+              {{ ligne + '\n\n' + (entrées[0:14] | join('\n\n')) }}
+            {% endif %}
+      # Dernier remplissage (tuile) — une ligne compacte
+      - service: input_text.set_value
+        target: { entity_id: input_text.scale_refill_last }
+        data:
+          value: "{{ detail }}"
+      - service: notify.mobile_app_<ton_telephone>
+        data:
+          title: "Remplissage silo"
+          message: "{{ detail }}"
+
+  # ---------------------------------------------------------------------------
+  # C. Alerte silo faible (jours restants sous le seuil)
+  # ---------------------------------------------------------------------------
+  - alias: "Scale - Alerte silo faible"
+    id: scale_low_alert
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.scale_silo_faible
+        to: "on"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.scale_erreur
+        state: "off"
+    action:
+      - variables:
+          message: >
+            ~{{ states('sensor.scale_jours_restants') }} jours de granulés restants
+            ({{ states('sensor.scale_poids') | round(0) }} kg).
+            Pense à remplir.
+      - service: notify.mobile_app_<ton_telephone>
+        data:
+          title: "⚠️ Silo faible"
+          message: "{{ message }}"
+      # Aussi dans la cloche de HA : reste jusqu'à ce qu'on la ferme.
+      - service: persistent_notification.create
+        data:
+          notification_id: scale_low_alert
+          title: "⚠️ Silo faible"
+          message: "{{ message }}"
+
+  # ---------------------------------------------------------------------------
+  # D. Recalcul du prix unitaire moyen pondéré (€/kg)
+  # ---------------------------------------------------------------------------
+  # prix = valeur_stock / POIDS ACTUEL (scale_poids = le stock). Déclenché sur
+  # tout mouvement de poids ou de valeur — couvre aussi l'initialisation.
+  - alias: "Scale - Recalcul prix unitaire"
+    id: scale_recalc_price
+    trigger:
+      - platform: state
+        entity_id: sensor.scale_poids
+      - platform: state
+        entity_id: input_number.scale_stock_value_eur
+    action:
+      - service: input_number.set_value
+        target: { entity_id: input_number.scale_unit_price_eur_kg }
+        data:
+          value: >
+            {% set kg = states('sensor.scale_poids') | float(0) %}
+            {% set val = states('input_number.scale_stock_value_eur') | float(0) %}
+            {{ (val / kg) | round(3) if kg > 0 else 0 }}
+
+  # ---------------------------------------------------------------------------
+  # E. Alerte batterie faible (< 20 %)
+  # ---------------------------------------------------------------------------
+  # Sous ~3,3 V la balance saute ses cycles pour protéger la LiPo, puis passe en
+  # veille d'urgence : elle ne publie plus. L'alerte doit donc partir AVANT.
+  - alias: "Scale - Alerte batterie faible"
+    id: scale_battery_low
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.scale_batterie
+        below: 20
+    action:
+      - variables:
+          message: >
+            Batterie à {{ states('sensor.scale_batterie') }} %.
+            Recharge le boîtier en USB (hors de sa base).
+      - service: notify.mobile_app_<ton_telephone>
+        data:
+          title: "🔋 Batterie de la balance faible"
+          message: "{{ message }}"
+      - service: persistent_notification.create
+        data:
+          notification_id: scale_battery_low
+          title: "🔋 Batterie de la balance faible"
+          message: "{{ message }}"
+
+  # ---------------------------------------------------------------------------
+  # F. Alerte « plus de nouvelles » (aucune publication depuis 6 jours)
+  # ---------------------------------------------------------------------------
+  # La balance ne publie que sur changement, batterie ou heartbeat (tous les
+  # MQTT_HEARTBEAT_CYCLES = 8 cycles, soit ~4 jours à 2 mesures par jour) : un
+  # silence de 36 h est NORMAL. 6 jours = heartbeat manqué + marge. Couvre la
+  # batterie vide, une panne WiFi ou broker. Après un redémarrage de HA, la
+  # valeur MQTT conservée remet le compteur à zéro.
+  - alias: "Scale - Alerte plus de nouvelles"
+    id: scale_no_news
+    trigger:
+      - platform: template
+        value_template: >
+          {{ states.sensor.scale_poids is not none
+             and (now() - states.sensor.scale_poids.last_updated).total_seconds() > 6 * 86400 }}
+    action:
+      - variables:
+          message: >
+            Aucune publication depuis plus de 6 jours (dernier poids :
+            {{ states('sensor.scale_poids') }} kg, batterie
+            {{ states('sensor.scale_batterie') }} %). Vérifie la batterie, le WiFi
+            et le broker.
+      - service: notify.mobile_app_<ton_telephone>
+        data:
+          title: "⚠️ La balance ne répond plus"
+          message: "{{ message }}"
+      - service: persistent_notification.create
+        data:
+          notification_id: scale_no_news
+          title: "⚠️ La balance ne répond plus"
+          message: "{{ message }}"
+
+  # ---------------------------------------------------------------------------
+  # G. Fermer les notifications de la cloche quand l'alerte s'annule
+  # ---------------------------------------------------------------------------
+  - alias: "Scale - Fermer les alertes résolues"
+    id: scale_alerts_dismiss
+    mode: queued
+    trigger:
+      # Silo rempli : plus de risque de manquer de granulés.
+      - platform: state
+        entity_id: binary_sensor.scale_silo_faible
+        to: "off"
+        id: scale_low_alert
+      # Batterie rechargée au-dessus du seuil d'alerte.
+      - platform: numeric_state
+        entity_id: sensor.scale_batterie
+        above: 20
+        id: scale_battery_low
+      # La balance a publié depuis moins d'une heure.
+      - platform: template
+        value_template: >
+          {{ states.sensor.scale_poids is not none
+             and (now() - states.sensor.scale_poids.last_updated).total_seconds() < 3600 }}
+        id: scale_no_news
+    action:
+      - service: persistent_notification.dismiss
+        data:
+          notification_id: "{{ trigger.id }}"
