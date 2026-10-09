@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Balance Silo - Portail local de configuration</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#000000","secondary-container":"#e2e2e2","secondary-fixed":"#e2e2e2","on-tertiary":"#ffffff","surface-container-highest":"#e2e3df","on-primary":"#ffffff","primary-fixed":"#e2e2e2","primary":"#000000","surface-container-low":"#f4f4f0","on-primary-container":"#848484","surface-bright":"#faf9f5","secondary-fixed-dim":"#c6c6c6","on-surface":"#1a1c1a","on-background":"#1a1c1a","tertiary-fixed":"#e2e2e2","inverse-primary":"#c6c6c6","on-primary-fixed":"#1b1b1b","inverse-on-surface":"#f1f1ed","on-primary-fixed-variant":"#474747","error-container":"#ffdad6","background":"#faf9f5","on-error-container":"#93000a","error":"#ba1a1a","primary-container":"#1b1b1b","on-secondary":"#ffffff","on-surface-variant":"#4c4546","surface":"#faf9f5","surface-dim":"#dadad6","tertiary-container":"#1b1b1b","surface-tint":"#5e5e5e","tertiary-fixed-dim":"#c6c6c6","on-tertiary-fixed-variant":"#474747","secondary":"#5e5e5e","on-tertiary-fixed":"#1b1b1b","surface-container":"#eeeeea","on-secondary-fixed-variant":"#474747","on-error":"#ffffff","primary-fixed-dim":"#c6c6c6","surface-container-high":"#e8e8e4","surface-container-lowest":"#ffffff","on-tertiary-container":"#848484","surface-variant":"#e2e3df","inverse-surface":"#2f312e","on-secondary-fixed":"#1b1b1b","outline-variant":"#cfc4c5","on-secondary-container":"#646464","outline":"#7e7576"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"8px","space-xs":"2px","space-sm":"4px","space-xl":"12px","gutter":"4px","space-md":"6px","margin":"2px"},"fontFamily":{"label-lg":["JetBrains Mono"],"headline-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-md":["JetBrains Mono"],"body-sm":["JetBrains Mono"],"body-md":["JetBrains Mono"],"body-lg":["JetBrains Mono"],"headline-sm":["JetBrains Mono"],"label-sm":["JetBrains Mono"]},"fontSize":{"label-lg":["9px",{"lineHeight":"10px","letterSpacing":"0.75px","fontWeight":"700"}],"headline-lg":["28px",{"lineHeight":"28px","letterSpacing":"-0.5px","fontWeight":"800"}],"label-md":["8px",{"lineHeight":"9px","letterSpacing":"0.5px","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"20px","letterSpacing":"0px","fontWeight":"700"}],"body-sm":["9px",{"lineHeight":"11px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["10px",{"lineHeight":"12px","letterSpacing":"0px","fontWeight":"500"}],"body-lg":["11px",{"lineHeight":"13px","letterSpacing":"0px","fontWeight":"600"}],"headline-sm":["13px",{"lineHeight":"14px","letterSpacing":"0.5px","fontWeight":"700"}],"label-sm":["7px",{"lineHeight":"8px","letterSpacing":"0.5px","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-20 w-full max-w-7xl mx-auto px-space-xl flex flex-col justify-between pt-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="w-7 h-7 bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold tracking-tight">S</div><div><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm tracking-tight text-primary uppercase">Balance Silo</span><span class="bg-surface-container font-label-sm text-label-sm px-space-xs py-[1px] border border-outline-variant text-on-surface uppercase">AP-MODE</span></div><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Portail local de configuration</span></div></div><div class="hidden md:flex items-center gap-space-lg font-label-md text-label-md border border-outline-variant bg-surface-container-low px-space-md py-space-xs"><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">IP:</span><span class="text-primary font-bold">192.168.4.1</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">AP:</span><span class="text-primary font-bold">SILO-SETUP</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">UPTIME:</span><span class="text-primary font-bold">01j 04h 12m</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">FW:</span><span class="text-primary font-bold">v1.4.2</span></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav class="flex items-center gap-space-xs overflow-x-auto -mb-[1px]" data-active-classes="border-b-2 border-primary text-primary font-bold bg-surface-container-low"><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="etat" href="#">État</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-wifi" href="#">Réseau Wi-Fi</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-mqtt" href="#">Réseau MQTT</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="parametres-silo" href="#">Paramètres Silo</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-mesure-globale" href="#">Capteurs HX711</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-calibration" href="#">Calibration Masse</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-repartition-4-pieds" href="#">Répartition 4 Pieds</a></nav></div></header><main class="w-full max-w-7xl mx-auto px-space-xl pt-20 flex-1 bg-surface"><div class="flex flex-col w-full">
+<section class="w-full py-space-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-md pb-space-md">
+<div class="flex items-center gap-space-md">
+<span class="px-space-sm py-space-xs bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-wider">DOC-REF: CFG-SILO-04</span>
+<span class="font-headline-md text-headline-md tracking-tight uppercase text-primary">Fiche Technique // Géométrie &amp; Seuils Métrologiques</span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm uppercase text-on-surface-variant">
+<span>RÉV: 2.13.0</span>
+<span class="text-outline-variant">/</span>
+<span>NORME: ENplus A1 ISO-17225-2</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-bold">STATUS: ACTIF</span>
+</div>
+</div>
+<!-- Dual Layout: Left technical spec matrix, right TTGO T5 preview and schematic -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Column: Detailed Form & Parameter Matrix -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- SECTION 1: CARACTÉRISTIQUES DU SILO & COMBUSTIBLE -->
+<div class="bg-surface-container-low p-space-lg">
+<div class="flex items-center justify-between bg-primary text-on-primary px-space-md py-space-xs -mx-space-lg -mt-space-lg mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span class="font-label-lg text-label-lg uppercase tracking-wider">01 // Caractéristiques du Silo &amp; Combustible</span>
+</div>
+<span class="font-label-sm text-label-sm text-surface-container-low uppercase tracking-widest">PARAM_ID: SILO_PHY_GEO</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Capacité nominale -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider" for="input-capacite">Capacité Nominale Max (Pellets)</label>
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container-high px-space-xs">W_NOM</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<input class="w-full bg-surface-container-lowest font-headline-md text-headline-md font-bold text-primary px-space-sm py-space-xs focus:outline-none focus:bg-surface-bright" id="input-capacite" step="0.5" type="number" value="500.0"/>
+<span class="font-body-lg text-body-lg font-bold text-primary">kg</span>
+</div>
+<span class="mt-space-xs font-label-sm text-label-sm text-on-surface-variant">Masse utile exploitable hors tare structurelle</span>
+</div>
+<!-- Tare du silo vide -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider" for="input-tare">Tare du Silo Vide (Structure + Trémie)</label>
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container-high px-space-xs">W_TARE</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<input class="w-full bg-surface-container-lowest font-headline-md text-headline-md font-bold text-primary px-space-sm py-space-xs focus:outline-none focus:bg-surface-bright" id="input-tare" step="0.5" type="number" value="120.0"/>
+<span class="font-body-lg text-body-lg font-bold text-primary">kg</span>
+</div>
+<span class="mt-space-xs font-label-sm text-label-sm text-on-surface-variant">Châssis mécano-soudé, vis sans fin, capteurs</span>
+</div>
+<!-- Poids total maximal admissible (Computed) -->
+<div class="bg-surface-container-highest p-space-md flex flex-col justify-between md:col-span-2">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md uppercase font-bold text-primary tracking-wider">Charge Maximale Brute Admissible (GVT)</span>
+<span class="font-label-sm text-label-sm bg-primary text-on-primary px-space-xs">CALCULÉ = W_NOM + W_TARE</span>
+</div>
+<div class="mt-space-sm flex items-center justify-between">
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg font-extrabold text-primary" id="computed-gvt">620.0</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">kg</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant text-right">
+<span>CONTRAINTE CAPTEURS:</span> <span class="text-primary font-bold">4 × 200 kg = 800 kg MAX</span><br/>
+<span>MARGE DE SÉCURITÉ STATIQUE:</span> <span class="text-primary font-bold">29.0 %</span>
+</div>
+</div>
+</div>
+<!-- Type de combustible -->
+<div class="bg-surface-container p-space-md md:col-span-2">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider block mb-space-xs" for="select-combustible">Sélection du Combustible Normalisé</label>
+<select class="w-full bg-surface-container-lowest font-body-lg text-body-lg text-primary px-space-sm py-space-xs focus:outline-none focus:bg-surface-bright cursor-pointer" id="select-combustible">
+<option selected="" value="650">Granulés de bois résineux (Pellets DINplus / ENplus A1 - 650 kg/m³)</option>
+<option value="680">Granulés de bois feuillus / mélangés (ENplus A2 - 680 kg/m³)</option>
+<option value="720">Plaquettes forestières calibrées P16S (Sèches - 720 kg/m³)</option>
+<option value="750">Céréales de chauffe / Maïs d'appoint (750 kg/m³)</option>
+</select>
+</div>
+<!-- Densité & Volume Dérivé -->
+<div class="bg-surface-container p-space-md">
+<span class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider block">Densité Volumique Apparente</span>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary" id="val-densite">650</span>
+<span class="font-body-md text-body-md font-bold text-primary">kg/m³</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">(0.65 kg/L)</span>
+</div>
+<span class="mt-space-xs font-label-sm text-label-sm text-on-surface-variant block">Coefficient certifié selon laboratoire ISO</span>
+</div>
+<div class="bg-surface-container p-space-md">
+<span class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider block">Volume Géométrique Utile</span>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary" id="computed-volume">769</span>
+<span class="font-body-md text-body-md font-bold text-primary">Litres</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">(0.77 m³)</span>
+</div>
+<span class="mt-space-xs font-label-sm text-label-sm text-on-surface-variant block">Vol = Capacité nominale / Densité</span>
+</div>
+</div>
+</div>
+<!-- SECTION 2: SEUILS CRITIQUES & GESTION DES ALERTES -->
+<div class="bg-surface-container-low p-space-lg">
+<div class="flex items-center justify-between bg-primary text-on-primary px-space-md py-space-xs -mx-space-lg -mt-space-lg mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span class="font-label-lg text-label-lg uppercase tracking-wider">02 // Seuils Critiques &amp; Déclencheurs de Surveillance</span>
+</div>
+<span class="font-label-sm text-label-sm text-surface-container-low uppercase tracking-widest">SUB_ALERT_ENGINE</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Seuil Niveau Bas -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider" for="input-seuil-bas">Seuil Niveau Bas (Notification &amp; Display)</label>
+<span class="font-label-sm text-label-sm bg-primary text-on-primary px-space-xs font-bold" id="seuil-bas-pc">15.0 %</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<input class="w-full bg-surface-container-lowest font-headline-md text-headline-md font-bold text-primary px-space-sm py-space-xs focus:outline-none focus:bg-surface-bright" id="input-seuil-bas" step="1.0" type="number" value="75.0"/>
+<span class="font-body-lg text-body-lg font-bold text-primary">kg</span>
+</div>
+<div class="mt-space-xs w-full bg-surface-container-high h-2 relative">
+<div class="bg-primary h-2" id="bar-seuil-bas" style="width: 15%;"></div>
+</div>
+<span class="mt-space-xs font-label-sm text-label-sm text-on-surface-variant">Déclenchement du dispatch MQTT et affichage warning</span>
+</div>
+<!-- Seuil Niveau Critique -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider" for="input-seuil-crit">Seuil Niveau Critique (Rupture Imminente)</label>
+<span class="font-label-sm text-label-sm bg-error text-on-error px-space-xs font-bold" id="seuil-crit-pc">6.0 %</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<input class="w-full bg-surface-container-lowest font-headline-md text-headline-md font-bold text-primary px-space-sm py-space-xs focus:outline-none focus:bg-surface-bright" id="input-seuil-crit" step="1.0" type="number" value="30.0"/>
+<span class="font-body-lg text-body-lg font-bold text-primary">kg</span>
+</div>
+<div class="mt-space-xs w-full bg-surface-container-high h-2 relative">
+<div class="bg-primary h-2" id="bar-seuil-crit" style="width: 6%;"></div>
+</div>
+<span class="mt-space-xs font-label-sm text-label-sm text-on-surface-variant">Risque de désamorçage de vis ou d'extinction chaudière</span>
+</div>
+<!-- Options Alertes & Fréquence -->
+<div class="bg-surface-container p-space-md md:col-span-2 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<label class="flex items-center gap-space-sm cursor-pointer select-none">
+<input class="w-4 h-4 rounded-none accent-primary cursor-pointer" id="chk-buzzer" type="checkbox"/>
+<span class="font-body-md text-body-md uppercase font-bold text-primary">Activer signal sonore piézo-électrique (Buzzer GPIO19) sur seuil critique</span>
+</label>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Rappel MQTT:</span>
+<span class="font-label-md text-label-md font-bold text-primary bg-surface-container-highest px-space-sm py-space-xs">Toutes les 2 heures si alerte active</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: GESTION DE L'AFFICHAGE E-PAPER EMBARQUÉ -->
+<div class="bg-surface-container-low p-space-lg">
+<div class="flex items-center justify-between bg-primary text-on-primary px-space-md py-space-xs -mx-space-lg -mt-space-lg mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[14px]">screenshot_monitor</span>
+<span class="font-label-lg text-label-lg uppercase tracking-wider">03 // Profil d'Affichage TTGO T5 (2.13" E-Paper 122x250)</span>
+</div>
+<span class="font-label-sm text-label-sm text-surface-container-low uppercase tracking-widest">DRV: GXEPD2_1BIT</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Option Inversion -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between">
+<span class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider">Comportement Optique Alerte</span>
+<div class="mt-space-sm">
+<label class="flex items-start gap-space-xs cursor-pointer select-none">
+<input checked="" class="mt-1 w-3.5 h-3.5 rounded-none accent-primary cursor-pointer" id="chk-inversion" type="checkbox"/>
+<span class="font-body-md text-body-md font-bold text-primary uppercase">Bandeau inversé permanent "▲ NIVEAU BAS ▲"</span>
+</label>
+</div>
+<span class="mt-space-sm font-label-sm text-label-sm text-on-surface-variant">Inversion 1-bit pour visibilité accrue en ambiance sombre</span>
+</div>
+<!-- Cycle rafraîchissement -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between">
+<span class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider">Fréquence de Mise à Jour</span>
+<div class="mt-space-sm">
+<span class="font-headline-sm text-headline-sm font-bold text-primary block">Toutes les 12h</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-space-xs">Ou déclenchement immédiat par bouton tactile</span>
+</div>
+<span class="mt-space-sm font-label-sm text-label-sm text-on-surface-variant">Optimisation stricte ultra-low-power ESP32 RTC</span>
+</div>
+<!-- Anti-ghosting -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between">
+<span class="font-label-md text-label-md uppercase text-on-surface-variant tracking-wider">Cycle Dégommage Écran</span>
+<div class="mt-space-sm">
+<span class="font-headline-sm text-headline-sm font-bold text-primary block">10 Cycles Partiels</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-space-xs">1 rafraîchissement complet (Full clear)</span>
+</div>
+<span class="mt-space-sm font-label-sm text-label-sm text-on-surface-variant">Évite la rémanence électrophorétique résiduelle</span>
+</div>
+</div>
+</div>
+<!-- SECTION 4: ACTIONS DE GESTION -->
+<div class="bg-surface-container-high p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">save</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Les modifications prennent effet immédiatement en mémoire NVS non-volatile.</span>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="w-full sm:w-auto px-space-md py-space-sm bg-surface-container-lowest text-primary font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-container transition-none" id="btn-reset" type="button">
+              Réinitialiser Usine
+            </button>
+<button class="w-full sm:w-auto px-space-md py-space-sm bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-wider hover:bg-primary-container transition-none flex items-center justify-center gap-space-xs" id="btn-save" type="button">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Enregistrer Paramètres</span>
+</button>
+</div>
+</div>
+<div class="hidden bg-primary text-on-primary p-space-sm flex items-center justify-between" id="save-banner">
+<span class="font-label-md text-label-md uppercase tracking-wider">Données synchronisées dans la partition NVS de l'ESP32 avec succès (Offset 0x9000).</span>
+<span class="font-label-sm text-label-sm bg-surface-container text-primary px-space-xs font-bold">COMMIT OK</span>
+</div>
+</div>
+<!-- Right Column: Engineering Graphic Register + TTGO 122x250 Physical Emulation -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Engineering Silhouette Card -->
+<div class="bg-surface-container-low p-space-md">
+<div class="flex items-center justify-between pb-space-xs mb-space-sm">
+<span class="font-label-lg text-label-lg uppercase font-bold text-primary">Coupe Technique Silo</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">ÉCHELLE: 1:25</span>
+</div>
+<!-- Silo Vector Diagnostic Schema -->
+<div class="w-full bg-surface-container-lowest p-space-sm flex flex-col items-center">
+<svg class="w-full max-w-[240px] h-[210px]" fill="none" viewbox="0 0 240 210" xmlns="http://www.w3.org/2000/svg">
+<!-- Grid background -->
+<pattern height="10" id="grid" patternunits="userSpaceOnUse" width="10">
+<path class="text-surface-container-highest" d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.3"></path>
+</pattern>
+<rect fill="url(#grid)" height="210" width="240"></rect>
+<!-- Silo body outer outline -->
+<rect class="text-primary" fill="none" height="90" stroke="currentColor" stroke-width="1.5" width="140" x="50" y="20"></rect>
+<!-- Hopper cone -->
+<polygon class="text-primary" fill="none" points="50,110 190,110 135,165 105,165" stroke="currentColor" stroke-width="1.5"></polygon>
+<!-- Fuel level representation (75kg / 500kg = 15% fill demonstration) -->
+<polygon class="text-secondary-fixed-dim" fill="currentColor" points="105,165 135,165 142,150 98,150"></polygon>
+<!-- Feed screw auger pipe -->
+<rect class="text-primary" fill="none" height="14" stroke="currentColor" stroke-width="1.5" width="40" x="100" y="165"></rect>
+<path class="text-primary" d="M102 172 L138 172" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1"></path>
+<!-- Support Legs with 4 Load Cells positions -->
+<line class="text-primary" stroke="currentColor" stroke-width="2" x1="50" x2="35" y1="90" y2="185"></line>
+<line class="text-primary" stroke="currentColor" stroke-width="2" x1="190" x2="205" y1="90" y2="185"></line>
+<!-- HX711 Sensors Base pads -->
+<rect class="text-primary" fill="currentColor" height="6" width="16" x="27" y="185"></rect>
+<rect class="text-primary" fill="currentColor" height="6" width="16" x="197" y="185"></rect>
+<text class="text-[7px] font-label-sm fill-current text-primary" x="17" y="202">HX711-P1</text>
+<text class="text-[7px] font-label-sm fill-current text-primary" x="187" y="202">HX711-P2</text>
+<!-- Dimension Annotations -->
+<!-- Height -->
+<line class="text-on-surface-variant" stroke="currentColor" stroke-width="1" x1="218" x2="218" y1="20" y2="165"></line>
+<line class="text-on-surface-variant" stroke="currentColor" stroke-width="1" x1="214" x2="222" y1="20" y2="20"></line>
+<line class="text-on-surface-variant" stroke="currentColor" stroke-width="1" x1="214" x2="222" y1="165" y2="165"></line>
+<text class="text-[7px] font-label-sm fill-current text-on-surface-variant" transform="rotate(90 224,96)" x="224" y="96">H_TOT 1650 mm</text>
+<!-- Level line alert markers -->
+<line class="text-primary" stroke="currentColor" stroke-dasharray="3 2" stroke-width="1" x1="52" x2="188" y1="135" y2="135"></line>
+<text class="text-[6.5px] font-label-sm fill-current text-primary font-bold" x="56" y="132">SEUIL BAS: 75 kg (15%)</text>
+<line class="text-error" stroke="currentColor" stroke-dasharray="2 1" stroke-width="1" x1="72" x2="168" y1="150" y2="150"></line>
+<text class="text-[6.5px] font-label-sm fill-current text-error font-bold" x="76" y="147">CRITIQUE: 30 kg (6%)</text>
+</svg>
+</div>
+<!-- Summary Metric Tags -->
+<div class="mt-space-sm grid grid-cols-2 gap-space-xs font-label-sm text-label-sm">
+<div class="bg-surface-container p-space-xs">
+<span class="text-on-surface-variant block">SURCHARGE MAX:</span>
+<span class="text-primary font-bold">120 % (744 kg)</span>
+</div>
+<div class="bg-surface-container p-space-xs">
+<span class="text-on-surface-variant block">ANGLE TRÉMIE:</span>
+<span class="text-primary font-bold">55.0° DÉVERSOIR</span>
+</div>
+</div>
+</div>
+<!-- TTGO T5 122x250 Native E-Paper Emulation & Shell Frame -->
+<div class="bg-surface-container-low p-space-md flex flex-col items-center">
+<div class="w-full flex items-center justify-between pb-space-xs mb-space-sm">
+<span class="font-label-lg text-label-lg uppercase font-bold text-primary">Rendu Écran TTGO T5 (1-bit)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">122 × 250 NATIVE</span>
+</div>
+<!-- Physical Device Enclosure Simulation -->
+<div class="p-4 bg-surface-container-highest flex flex-col items-center shadow-md">
+<!-- Physical Top Chamfer & Sensor Notch -->
+<div class="w-full flex justify-between items-center mb-2 px-1">
+<span class="font-label-sm text-[6px] tracking-widest text-on-surface-variant uppercase">LILYGO TTGO-T5 V2.3</span>
+<div class="w-1.5 h-1.5 rounded-full bg-outline"></div>
+</div>
+<!-- STRICT 122px x 250px E-Paper Active Viewport (Zero Gray, Pure Bistable Black/White) -->
+<div class="w-[122px] h-[250px] bg-surface-container-low text-primary overflow-hidden relative select-none">
+<!-- Header Zone (Y: 0 -> 15, Height: 16px, Inverted Black) -->
+<div class="h-[16px] bg-primary text-surface-container-low px-1 flex items-center justify-between font-label-sm text-[7px] leading-none">
+<span class="font-bold tracking-tight">SILO-01</span>
+<span class="tracking-widest">ALRT</span>
+<div class="flex items-center gap-[2px]">
+<span class="font-bold">94%</span>
+<div class="w-[10px] h-[5px] bg-surface-container-low relative p-[1px]">
+<div class="w-[7px] h-[3px] bg-primary"></div>
+</div>
+</div>
+</div>
+<!-- Subheader / Mode Strip (Y: 16 -> 27, Height: 12px) -->
+<div class="h-[12px] px-1 flex items-center justify-between font-label-sm text-[7px] leading-none uppercase">
+<span class="font-bold">RÉSERVE SILO</span>
+<span>VOL: 769L</span>
+</div>
+<!-- Primary Metric Hero (Y: 28 -> 95, Height: 68px) -->
+<div class="h-[68px] px-1 flex flex-col justify-center">
+<div class="flex items-start justify-between">
+<div class="flex items-baseline">
+<span class="font-headline-lg text-[26px] leading-[26px] font-extrabold tracking-tight" id="epaper-val-kg">75.0</span>
+<span class="font-headline-sm text-[10px] font-bold ml-[1px]">kg</span>
+</div>
+<span class="font-label-sm text-[8px] font-bold">▲ BAS</span>
+</div>
+<!-- Custom 1-bit Progress Bar (Gauge Segment) -->
+<div class="w-full h-[7px] bg-surface-container-low mt-1 p-[1px]">
+<div class="h-full bg-primary" id="epaper-bar" style="width: 15%;"></div>
+</div>
+<div class="flex justify-between items-center mt-1 font-label-sm text-[7px] leading-none">
+<span id="epaper-val-pc">PCT: 15.0%</span>
+<span>CAP: 500k</span>
+</div>
+</div>
+<!-- Inverted Alert Banner (Dynamic preview based on config) -->
+<div class="h-[14px] bg-primary text-surface-container-low px-1 flex items-center justify-center font-label-sm text-[7px] font-bold tracking-wider uppercase" id="epaper-alert-banner">
+                ▲ NIVEAU BAS ▲
+              </div>
+<!-- Secondary Data Matrix (Y: 110 -> 175) -->
+<div class="h-[65px] px-1 py-[2px] flex flex-col justify-between font-label-sm text-[7.5px] leading-tight">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">TARE SILO:</span>
+<span class="font-bold" id="epaper-tare">120.0 kg</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">GVT BRUT:</span>
+<span class="font-bold" id="epaper-gvt">620.0 kg</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">DENSITÉ:</span>
+<span class="font-bold" id="epaper-dens">0.65 kg/L</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">AUTONOMIE:</span>
+<span class="font-bold">~ 6.2 JRS</span>
+</div>
+</div>
+<!-- Graphic Register 1-Bit Dither Representation (Y: 176 -> 217, 42px) -->
+<div class="h-[41px] px-1 flex flex-col justify-end">
+<div class="flex items-end gap-[2px] h-[30px] w-full pt-[2px]">
+<div class="bg-primary w-[7px] h-[28px]"></div>
+<div class="bg-primary w-[7px] h-[25px]"></div>
+<div class="bg-primary w-[7px] h-[24px]"></div>
+<div class="bg-primary w-[7px] h-[21px]"></div>
+<div class="bg-primary w-[7px] h-[19px]"></div>
+<div class="bg-primary w-[7px] h-[16px]"></div>
+<div class="bg-primary w-[7px] h-[14px]"></div>
+<div class="bg-primary w-[7px] h-[12px]"></div>
+<div class="bg-primary w-[7px] h-[9px]"></div>
+<div class="bg-primary w-[7px] h-[7px]"></div>
+<div class="bg-primary w-[7px] h-[6px]"></div>
+<div class="bg-primary w-[7px] h-[4px]"></div>
+</div>
+<div class="flex justify-between font-label-sm text-[6.5px] leading-none text-on-surface-variant mt-[1px]">
+<span>-12H</span>
+<span>HISTO CONSO</span>
+<span>NOW</span>
+</div>
+</div>
+<!-- Interaction Bar / Footer (Y: 218 -> 249, Height: 32px) -->
+<div class="h-[32px] bg-surface-container-low px-1 flex flex-col justify-center font-label-sm text-[7px] leading-tight">
+<div class="flex justify-between items-center">
+<span class="font-bold">[●] SUIVANT</span>
+<span class="text-on-surface-variant">MODE</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-bold">[—] RE-TARAGE</span>
+<span class="text-on-surface-variant">HOLD 1s</span>
+</div>
+</div>
+<!-- Long Press Indicator Emulation Line -->
+<div class="absolute bottom-0 left-0 w-1/3 h-[2px] bg-primary"></div>
+</div>
+<!-- Tactile Hardware Button Casing Cue -->
+<div class="mt-4 flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center cursor-pointer shadow-inner active:bg-primary-container">
+<div class="w-3.5 h-3.5 rounded-full bg-surface-container-highest"></div>
+</div>
+<span class="font-label-sm text-[7px] font-bold text-on-surface-variant uppercase mt-1">SÉLEC / FUNC</span>
+</div>
+</div>
+<div class="mt-space-md w-full font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex justify-between py-space-xs">
+<span>PILOTE MATÉRIEL:</span>
+<span class="font-bold text-primary">GxEPD2_213_B73</span>
+</div>
+<div class="flex justify-between py-space-xs">
+<span>BUS SPI:</span>
+<span class="font-bold text-primary">SCK:18 / MOSI:23 / CS:5</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Logic for Silo Engineering Formulae -->
+<script>
+    (function initSiloEngineeringModule() {
+      const inputCap = document.getElementById('input-capacite');
+      const inputTare = document.getElementById('input-tare');
+      const selectComb = document.getElementById('select-combustible');
+      const inputSeuilBas = document.getElementById('input-seuil-bas');
+      const inputSeuilCrit = document.getElementById('input-seuil-crit');
+      const chkInversion = document.getElementById('chk-inversion');
+
+      const computedGvt = document.getElementById('computed-gvt');
+      const computedVol = document.getElementById('computed-volume');
+      const valDensite = document.getElementById('val-densite');
+      
+      const seuilBasPc = document.getElementById('seuil-bas-pc');
+      const seuilCritPc = document.getElementById('seuil-crit-pc');
+      const barSeuilBas = document.getElementById('bar-seuil-bas');
+      const barSeuilCrit = document.getElementById('bar-seuil-crit');
+
+      // E-paper live simulation nodes
+      const epKg = document.getElementById('epaper-val-kg');
+      const epPc = document.getElementById('epaper-val-pc');
+      const epBar = document.getElementById('epaper-bar');
+      const epTare = document.getElementById('epaper-tare');
+      const epGvt = document.getElementById('epaper-gvt');
+      const epDens = document.getElementById('epaper-dens');
+      const epBanner = document.getElementById('epaper-alert-banner');
+
+      const btnSave = document.getElementById('btn-save');
+      const btnReset = document.getElementById('btn-reset');
+      const saveBanner = document.getElementById('save-banner');
+
+      function recalculatePhysics() {
+        const cap = parseFloat(inputCap.value) || 0;
+        const tare = parseFloat(inputTare.value) || 0;
+        const dens = parseFloat(selectComb.value) || 650;
+        const seuilBas = parseFloat(inputSeuilBas.value) || 0;
+        const seuilCrit = parseFloat(inputSeuilCrit.value) || 0;
+
+        // Formula 1: Gross Vehicle/Total Weight
+        const gvt = (cap + tare).toFixed(1);
+        computedGvt.textContent = gvt;
+        epGvt.textContent = gvt + ' kg';
+        epTare.textContent = tare.toFixed(1) + ' kg';
+
+        // Formula 2: Usable Volume (Liters & m3)
+        const volLitres = Math.round((cap / dens) * 1000);
+        const volM3 = (cap / dens).toFixed(2);
+        computedVol.textContent = volLitres;
+        valDensite.textContent = dens;
+        epDens.textContent = (dens / 1000).toFixed(2) + ' kg/L';
+
+        // Formula 3: Threshold Percentage Ratios
+        const pctBas = cap > 0 ? ((seuilBas / cap) * 100).toFixed(1) : '0.0';
+        const pctCrit = cap > 0 ? ((seuilCrit / cap) * 100).toFixed(1) : '0.0';
+
+        seuilBasPc.textContent = pctBas + ' %';
+        seuilCritPc.textContent = pctCrit + ' %';
+
+        barSeuilBas.style.width = Math.min(100, Math.max(0, pctBas)) + '%';
+        barSeuilCrit.style.width = Math.min(100, Math.max(0, pctCrit)) + '%';
+
+        // Update E-Paper representation values
+        epKg.textContent = seuilBas.toFixed(1);
+        epPc.textContent = 'PCT: ' + pctBas + '%';
+        epBar.style.width = Math.min(100, Math.max(0, pctBas)) + '%';
+
+        // Toggle Alert visual representation
+        if (chkInversion.checked) {
+          epBanner.classList.remove('hidden');
+        } else {
+          epBanner.classList.add('hidden');
+        }
+      }
+
+      // Attach instant reactive events
+      [inputCap, inputTare, selectComb, inputSeuilBas, inputSeuilCrit].forEach(el => {
+        el.addEventListener('input', recalculatePhysics);
+      });
+      chkInversion.addEventListener('change', recalculatePhysics);
+
+      btnReset.addEventListener('click', () => {
+        inputCap.value = "500.0";
+        inputTare.value = "120.0";
+        selectComb.value = "650";
+        inputSeuilBas.value = "75.0";
+        inputSeuilCrit.value = "30.0";
+        chkInversion.checked = true;
+        recalculatePhysics();
+        saveBanner.classList.add('hidden');
+      });
+
+      btnSave.addEventListener('click', () => {
+        saveBanner.classList.remove('hidden');
+        setTimeout(() => {
+          saveBanner.classList.add('hidden');
+        }, 5000);
+      });
+
+      // Initial execute
+      recalculatePhysics();
+    })();
+  </script>
+</div></main><footer class="w-full border-t border-outline-variant bg-surface-container-lowest mt-space-xl py-space-md"><div class="max-w-7xl mx-auto px-space-xl flex flex-col md:flex-row items-center justify-between gap-space-xs font-label-md text-label-md text-on-surface-variant"><div class="flex items-center gap-space-xs"><span>Balance Silo DIY ESP32</span><span>•</span><span>ESP-IDF / GxEPD2</span><span>•</span><span>FLASH: 64% LIBRE</span></div><div class="flex items-center gap-space-xs"><span>HEURE SYSTÈME: 20:46 02/10/24</span><span>•</span><span class="inline-block w-2 h-2 bg-primary"></span><span>SYNC OK</span></div></div></footer></body></html>

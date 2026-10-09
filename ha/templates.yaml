@@ -1,0 +1,116 @@
+# =============================================================================
+# ESP Scale — Home Assistant : templates & utility_meter
+# =============================================================================
+
+# --- Jours restants estimés + binaire "silo faible" --------------------------
+# jours_restants = stock_kg / conso_moyenne_journalière (moyenne sur la conso
+# daily du utility_meter). S'adapte à la saison (hiver → alerte plus tôt).
+template:
+  - sensor:
+      # Reflet du compteur cumulé (input_number) en sensor — source requise
+      # par utility_meter (qui attend un sensor, pas un input_number).
+      - name: "Scale Conso cumulée"
+        unique_id: scale_consumption_total
+        unit_of_measurement: "kg"
+        device_class: weight
+        state_class: total_increasing
+        state: "{{ states('input_number.scale_consumption_total_kg') | float(0) | round(2) }}"
+
+      # Reflet du compteur € cumulé en sensor (source des utility_meter €)
+      # NB: device_class monetary impose state_class 'total' (pas
+      # 'total_increasing') — sinon warning HA.
+      - name: "Scale Coût cumulé"
+        unique_id: scale_consumption_total_eur
+        unit_of_measurement: "EUR"
+        device_class: monetary
+        state_class: total
+        state: "{{ states('input_number.scale_consumption_total_eur') | float(0) | round(2) }}"
+
+      # Consommation moyenne (kg/jour) sur 14 jours glissants. Le diviseur est le
+      # nombre de jours depuis le début du suivi (input_datetime), plafonné à 14
+      # et d'au moins 1 jour. Sans date de début, on divise par 14.
+      - name: "Scale Conso moyenne"
+        unique_id: scale_consumption_avg
+        unit_of_measurement: "kg/j"
+        icon: mdi:chart-timeline-variant
+        state: >
+          {% set kg = states('sensor.scale_conso_14_jours') | float(0) %}
+          {% set start = states('input_datetime.scale_tracking_start') %}
+          {% set days = ((now() - as_datetime(start) | as_local).total_seconds() / 86400)
+                        if start not in ['unknown', 'unavailable', ''] else 14 %}
+          {{ (kg / ([[days, 1] | max, 14] | min)) | round(2) }}
+        availability: >-
+          {{ states('sensor.scale_conso_14_jours') not in ['unknown', 'unavailable'] }}
+
+      - name: "Scale Jours restants"
+        unique_id: scale_days_left
+        unit_of_measurement: "j"
+        icon: mdi:calendar-clock
+        # stock = scale_poids (le poids publié EST le stock) ; consommation =
+        # moyenne glissante. Indisponible tant qu'aucune consommation n'a été
+        # vue sur la période (pas de valeur littérale invalide).
+        state: >
+          {% set stock = states('sensor.scale_poids') | float(0) %}
+          {% set avg = states('sensor.scale_conso_moyenne') | float(0) %}
+          {{ (stock / avg) | round(1) if avg > 0 else 0 }}
+        availability: >-
+          {{ states('sensor.scale_poids') not in ['unknown', 'unavailable', 'none']
+             and states('sensor.scale_conso_moyenne') | float(0) > 0 }}
+
+  # --- Reflets arrondis des utility_meter pour l'AFFICHAGE -------------------
+  # Les utility_meter bruts peuvent garder un état bruité par les flottants
+  # historiques (24.20000000000000). Ces reflets arrondissent à 2 décimales ;
+  # le dashboard les utilise à la place des utility_meter bruts.
+  - sensor:
+      - name: "Scale Conso jour (affichage)"
+        unique_id: scale_display_daily_kg
+        unit_of_measurement: "kg"
+        device_class: weight
+        state: "{{ states('sensor.scale_consumption_daily') | float(0) | round(2) }}"
+        availability: "{{ states('sensor.scale_consumption_daily') not in ['unknown', 'unavailable'] }}"
+
+      - name: "Scale Conso mois (affichage)"
+        unique_id: scale_display_monthly_kg
+        unit_of_measurement: "kg"
+        device_class: weight
+        state: "{{ states('sensor.scale_consumption_monthly') | float(0) | round(2) }}"
+        availability: "{{ states('sensor.scale_consumption_monthly') not in ['unknown', 'unavailable'] }}"
+
+      - name: "Scale Conso année (affichage)"
+        unique_id: scale_display_yearly_kg
+        unit_of_measurement: "kg"
+        device_class: weight
+        state: "{{ states('sensor.scale_consumption_yearly') | float(0) | round(2) }}"
+        availability: "{{ states('sensor.scale_consumption_yearly') not in ['unknown', 'unavailable'] }}"
+
+      - name: "Scale Coût jour (affichage)"
+        unique_id: scale_display_daily_eur
+        unit_of_measurement: "EUR"
+        device_class: monetary
+        state: "{{ states('sensor.scale_cost_daily') | float(0) | round(2) }}"
+        availability: "{{ states('sensor.scale_cost_daily') not in ['unknown', 'unavailable'] }}"
+
+      - name: "Scale Coût mois (affichage)"
+        unique_id: scale_display_monthly_eur
+        unit_of_measurement: "EUR"
+        device_class: monetary
+        state: "{{ states('sensor.scale_cost_monthly') | float(0) | round(2) }}"
+        availability: "{{ states('sensor.scale_cost_monthly') not in ['unknown', 'unavailable'] }}"
+
+      - name: "Scale Coût année (affichage)"
+        unique_id: scale_display_yearly_eur
+        unit_of_measurement: "EUR"
+        device_class: monetary
+        state: "{{ states('sensor.scale_cost_yearly') | float(0) | round(2) }}"
+        availability: "{{ states('sensor.scale_cost_yearly') not in ['unknown', 'unavailable'] }}"
+
+  - binary_sensor:
+      - name: "Scale Silo faible"
+        unique_id: scale_low
+        device_class: problem
+        icon: mdi:alert
+        state: >
+          {% set days = states('sensor.scale_jours_restants') | float(999) %}
+          {% set threshold = states('input_number.scale_alert_days') | float(10) %}
+          {{ days < threshold }}
+        availability: "{{ states('sensor.scale_jours_restants') not in ['unknown', 'unavailable'] }}"

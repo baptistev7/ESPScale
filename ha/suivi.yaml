@@ -1,0 +1,12 @@
+# =============================================================================
+# ESP Scale — Home Assistant : début du suivi
+# =============================================================================
+# Date à partir de laquelle la consommation est suivie. La moyenne glissante
+# (templates.yaml) divise par le nombre de jours écoulés depuis cette date,
+# plafonné à 14 : sans elle, les deux premières semaines sous-estimeraient la
+# consommation. À régler une fois (et après chaque remise à zéro de l'historique).
+input_datetime:
+  scale_tracking_start:
+    name: "Début du suivi"
+    has_date: true
+    has_time: false

@@ -1,0 +1,31 @@
+# =============================================================================
+# ESP Scale — Home Assistant : utility_meter (compteurs "style énergie")
+# =============================================================================
+# utility_meter calcule la DIFFÉRENCE de sa source (le compteur cumulé qui
+# monte, sensor.scale_conso_cumulee) → daily = conso du jour,
+# monthly/yearly = agrégats. Historique natif + graphiques HA.
+#
+# NB: les sources sont les templates de templates.yaml, dont les entity_id
+# sont francisés par HA : scale_conso_cumulee / scale_cout_cumule.
+
+utility_meter:
+  # --- kg ---
+  scale_consumption_daily:
+    source: sensor.scale_conso_cumulee
+    cycle: daily
+  scale_consumption_monthly:
+    source: sensor.scale_conso_cumulee
+    cycle: monthly
+  scale_consumption_yearly:
+    source: sensor.scale_conso_cumulee
+    cycle: yearly
+  # --- € ---
+  scale_cost_daily:
+    source: sensor.scale_cout_cumule
+    cycle: daily
+  scale_cost_monthly:
+    source: sensor.scale_cout_cumule
+    cycle: monthly
+  scale_cost_yearly:
+    source: sensor.scale_cout_cumule
+    cycle: yearly

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Balance Silo - Portail local de configuration</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#000000","secondary-container":"#e2e2e2","secondary-fixed":"#e2e2e2","on-tertiary":"#ffffff","surface-container-highest":"#e2e3df","on-primary":"#ffffff","primary-fixed":"#e2e2e2","primary":"#000000","surface-container-low":"#f4f4f0","on-primary-container":"#848484","surface-bright":"#faf9f5","secondary-fixed-dim":"#c6c6c6","on-surface":"#1a1c1a","on-background":"#1a1c1a","tertiary-fixed":"#e2e2e2","inverse-primary":"#c6c6c6","on-primary-fixed":"#1b1b1b","inverse-on-surface":"#f1f1ed","on-primary-fixed-variant":"#474747","error-container":"#ffdad6","background":"#faf9f5","on-error-container":"#93000a","error":"#ba1a1a","primary-container":"#1b1b1b","on-secondary":"#ffffff","on-surface-variant":"#4c4546","surface":"#faf9f5","surface-dim":"#dadad6","tertiary-container":"#1b1b1b","surface-tint":"#5e5e5e","tertiary-fixed-dim":"#c6c6c6","on-tertiary-fixed-variant":"#474747","secondary":"#5e5e5e","on-tertiary-fixed":"#1b1b1b","surface-container":"#eeeeea","on-secondary-fixed-variant":"#474747","on-error":"#ffffff","primary-fixed-dim":"#c6c6c6","surface-container-high":"#e8e8e4","surface-container-lowest":"#ffffff","on-tertiary-container":"#848484","surface-variant":"#e2e3df","inverse-surface":"#2f312e","on-secondary-fixed":"#1b1b1b","outline-variant":"#cfc4c5","on-secondary-container":"#646464","outline":"#7e7576"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"8px","space-xs":"2px","space-sm":"4px","space-xl":"12px","gutter":"4px","space-md":"6px","margin":"2px"},"fontFamily":{"label-lg":["JetBrains Mono"],"headline-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-md":["JetBrains Mono"],"body-sm":["JetBrains Mono"],"body-md":["JetBrains Mono"],"body-lg":["JetBrains Mono"],"headline-sm":["JetBrains Mono"],"label-sm":["JetBrains Mono"]},"fontSize":{"label-lg":["9px",{"lineHeight":"10px","letterSpacing":"0.75px","fontWeight":"700"}],"headline-lg":["28px",{"lineHeight":"28px","letterSpacing":"-0.5px","fontWeight":"800"}],"label-md":["8px",{"lineHeight":"9px","letterSpacing":"0.5px","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"20px","letterSpacing":"0px","fontWeight":"700"}],"body-sm":["9px",{"lineHeight":"11px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["10px",{"lineHeight":"12px","letterSpacing":"0px","fontWeight":"500"}],"body-lg":["11px",{"lineHeight":"13px","letterSpacing":"0px","fontWeight":"600"}],"headline-sm":["13px",{"lineHeight":"14px","letterSpacing":"0.5px","fontWeight":"700"}],"label-sm":["7px",{"lineHeight":"8px","letterSpacing":"0.5px","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-20 w-full max-w-7xl mx-auto px-space-xl flex flex-col justify-between pt-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="w-7 h-7 bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold tracking-tight">S</div><div><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm tracking-tight text-primary uppercase">Balance Silo</span><span class="bg-surface-container font-label-sm text-label-sm px-space-xs py-[1px] border border-outline-variant text-on-surface uppercase">AP-MODE</span></div><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Portail local de configuration</span></div></div><div class="hidden md:flex items-center gap-space-lg font-label-md text-label-md border border-outline-variant bg-surface-container-low px-space-md py-space-xs"><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">IP:</span><span class="text-primary font-bold">192.168.4.1</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">AP:</span><span class="text-primary font-bold">SILO-SETUP</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">UPTIME:</span><span class="text-primary font-bold">01j 04h 12m</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">FW:</span><span class="text-primary font-bold">v1.4.2</span></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav class="flex items-center gap-space-xs overflow-x-auto -mb-[1px]" data-active-classes="border-b-2 border-primary text-primary font-bold bg-surface-container-low"><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="etat" href="#">État</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-wifi" href="#">Réseau Wi-Fi</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-mqtt" href="#">Réseau MQTT</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="parametres-silo" href="#">Paramètres Silo</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-mesure-globale" href="#">Capteurs HX711</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-calibration" href="#">Calibration Masse</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-repartition-4-pieds" href="#">Répartition 4 Pieds</a></nav></div></header><main class="w-full max-w-7xl mx-auto px-space-xl pt-20 flex-1 bg-surface"><div class="flex flex-col w-full">
+<div class="w-full py-space-xl flex flex-col gap-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
+<span>Télémétrie</span>
+<span>/</span>
+<span>Protocole IoT</span>
+<span>/</span>
+<span class="text-primary font-bold">Liaison MQTT</span>
+</div>
+<p class="font-headline-md text-headline-md uppercase text-primary tracking-tight mt-space-xs">
+          Configuration Broker &amp; Intégration Home Assistant
+        </p>
+</div>
+<div class="flex items-center gap-space-sm font-label-md text-label-md">
+<span class="text-on-surface-variant uppercase">Protocole:</span>
+<span class="bg-surface-container-high px-space-sm py-space-xs font-bold text-primary">MQTT v3.1.1 OASIS</span>
+<span class="bg-surface-container-high px-space-sm py-space-xs font-bold text-primary">QoS 1 (ACK)</span>
+</div>
+</div>
+<!-- 1. STATUT DE LA LIAISON MQTT -->
+<div class="bg-surface-container-lowest p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<span class="w-2 h-2 bg-primary inline-block"></span>
+<h2 class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary">
+            01. Statut de la liaison MQTT
+          </h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">État de session:</span>
+<span class="bg-primary text-on-primary font-label-lg text-label-lg px-space-md py-space-xs uppercase tracking-widest flex items-center gap-space-xs">
+<span class="inline-block w-1.5 h-1.5 bg-surface-container-lowest"></span>
+            Connecté
+          </span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-low p-space-md flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Broker distant cible</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight mt-space-xs">192.168.1.50:1883</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-space-xs">Liaison TCP non chiffrée</span>
+</div>
+<div class="bg-surface-container-low p-space-md flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Messages publiés</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">1,428</span>
+<span class="font-label-md text-label-md text-on-surface-variant">pkts</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cumul depuis démarrage</span>
+</div>
+<div class="bg-surface-container-low p-space-md flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Erreurs d'acheminement</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">0</span>
+<span class="font-label-md text-label-md text-on-surface-variant">erreurs</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Taux de perte : 0.00%</span>
+</div>
+<div class="bg-surface-container-low p-space-md flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Dernier télégramme</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold mt-space-xs">20:46:12</span>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm mt-space-xs">
+<span>Latence roundtrip:</span>
+<span class="text-primary font-bold">18 ms (ACK)</span>
+</div>
+</div>
+</div>
+<!-- Real-time Sparkline of transmission ping -->
+<div class="bg-surface-container-low p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm uppercase text-on-surface-variant">
+<span>Moniteur d'acquittement PUBACK (16 derniers télégrammes)</span>
+<span>Max: 24ms • Min: 14ms • Moy: 17.8ms</span>
+</div>
+<div class="w-full h-8 flex items-end gap-[3px] pt-space-xs">
+<div class="flex-1 bg-surface-variant h-4"></div>
+<div class="flex-1 bg-surface-variant h-5"></div>
+<div class="flex-1 bg-surface-variant h-4"></div>
+<div class="flex-1 bg-surface-variant h-6"></div>
+<div class="flex-1 bg-surface-variant h-4"></div>
+<div class="flex-1 bg-surface-variant h-5"></div>
+<div class="flex-1 bg-surface-variant h-7"></div>
+<div class="flex-1 bg-surface-variant h-5"></div>
+<div class="flex-1 bg-surface-variant h-4"></div>
+<div class="flex-1 bg-surface-variant h-4"></div>
+<div class="flex-1 bg-surface-variant h-5"></div>
+<div class="flex-1 bg-surface-variant h-6"></div>
+<div class="flex-1 bg-surface-variant h-5"></div>
+<div class="flex-1 bg-surface-variant h-4"></div>
+<div class="flex-1 bg-surface-variant h-5"></div>
+<div class="flex-1 bg-primary h-[18px]"></div>
+</div>
+</div>
+</div>
+<!-- 2. CONFIGURATION DU SERVEUR BROKER -->
+<div class="bg-surface-container-lowest p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<span class="w-2 h-2 bg-primary inline-block"></span>
+<h2 class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary">
+            02. Configuration du serveur Broker
+          </h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Liaison TCP/IP directe</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<!-- Host -->
+<div class="md:col-span-8 flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant" for="mqtt-host">
+            Adresse IP ou Nom d'hôte (Hostname)
+          </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low px-space-md py-space-sm font-body-md text-body-md text-primary font-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary shadow-none" id="mqtt-host" placeholder="Ex: 192.168.1.50 ou homeassistant.local" type="text" value="192.168.1.50"/>
+<span class="absolute right-space-md top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-on-surface-variant uppercase">IPv4 / mDNS</span>
+</div>
+</div>
+<!-- Port -->
+<div class="md:col-span-4 flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant" for="mqtt-port">
+            Port TCP
+          </label>
+<input class="w-full bg-surface-container-low px-space-md py-space-sm font-body-md text-body-md text-primary font-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary shadow-none" id="mqtt-port" type="number" value="1883"/>
+</div>
+<!-- TLS Toggle -->
+<div class="md:col-span-12 bg-surface-container-low p-space-md flex items-center justify-between">
+<label class="flex items-center gap-space-sm cursor-pointer select-none">
+<input class="w-4 h-4 bg-surface-container-lowest accent-primary cursor-pointer rounded-none" id="tls-toggle" type="checkbox"/>
+<span class="font-body-md text-body-md text-primary font-bold uppercase">Activer le chiffrement TLS / MQTTS (Port sécurisé 8883)</span>
+</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Certificat CA non requis en local</span>
+</div>
+<!-- Client ID -->
+<div class="md:col-span-4 flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant" for="mqtt-client-id">
+            Identifiant Client (Client ID)
+          </label>
+<input class="w-full bg-surface-container-low px-space-md py-space-sm font-body-md text-body-md text-primary font-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary shadow-none" id="mqtt-client-id" type="text" value="silo_scale_esp32_01"/>
+</div>
+<!-- Username -->
+<div class="md:col-span-4 flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant" for="mqtt-user">
+            Nom d'utilisateur (Username)
+          </label>
+<input class="w-full bg-surface-container-low px-space-md py-space-sm font-body-md text-body-md text-primary font-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary shadow-none" id="mqtt-user" type="text" value="mqtt_silo_user"/>
+</div>
+<!-- Password -->
+<div class="md:col-span-4 flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant" for="mqtt-pass">
+            Mot de passe (Password)
+          </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low px-space-md py-space-sm font-body-md text-body-md text-primary font-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary shadow-none pr-space-xl" id="mqtt-pass" type="password" value="IndustrialVaultKey2024"/>
+<button aria-label="Afficher le mot de passe" class="absolute right-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary p-space-xs flex items-center" id="toggle-pwd-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. STRUCTURE DES TOPICS & AUTO-DISCOVERY HOME ASSISTANT -->
+<div class="bg-surface-container-lowest p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<span class="w-2 h-2 bg-primary inline-block"></span>
+<h2 class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary">
+            03. Structure des sujets (Topics) &amp; Auto-Discovery
+          </h2>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span class="w-2 h-2 bg-primary"></span>
+<span>HASSIO COMPATIBLE</span>
+</div>
+</div>
+<!-- Auto Discovery Checkbox Card -->
+<div class="bg-surface-container-low p-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<label class="flex items-center gap-space-sm cursor-pointer select-none">
+<input checked="" class="w-4 h-4 bg-surface-container-lowest accent-primary cursor-pointer rounded-none" id="ha-autodiscovery" type="checkbox"/>
+<span class="font-body-md text-body-md text-primary font-bold uppercase">
+            Activer Home Assistant MQTT Auto-Discovery
+          </span>
+</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+          Discovery prefix standard : <span class="text-primary font-bold">homeassistant/</span>
+</span>
+</div>
+<!-- Base Topic Field -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center">
+<div class="md:col-span-4 flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant" for="mqtt-base-topic">
+            Préfixe de base des topics
+          </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Racine arborescente appliquée à tous les canaux</span>
+</div>
+<div class="md:col-span-8">
+<input class="w-full bg-surface-container-low px-space-md py-space-sm font-body-md text-body-md text-primary font-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary shadow-none" id="mqtt-base-topic" type="text" value="silo/granules/"/>
+</div>
+</div>
+<!-- Topics Mapping Table -->
+<div class="w-full overflow-x-auto">
+<div class="min-w-[640px] flex flex-col gap-[2px]">
+<!-- Table Header -->
+<div class="grid grid-cols-12 bg-primary text-on-primary px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider">
+<span class="col-span-3">Entité / Fonction</span>
+<span class="col-span-5">Topic MQTT Actif</span>
+<span class="col-span-2">Format Payload</span>
+<span class="col-span-2 text-right">Flags QoS / Retain</span>
+</div>
+<!-- Row 1: Weight -->
+<div class="grid grid-cols-12 bg-surface-container-low px-space-md py-space-sm items-center hover:bg-surface-container transition-none">
+<div class="col-span-3 flex flex-col">
+<span class="font-body-md text-body-md text-primary font-bold uppercase">Masse globale</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Capteur principal silo</span>
+</div>
+<div class="col-span-5 font-mono font-body-sm text-body-sm text-primary flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span class="topic-preview" data-suffix="weight_kg">silo/granules/weight_kg</span>
+</div>
+<div class="col-span-2 font-label-sm text-label-sm text-on-surface-variant uppercase">
+              Float / JSON (kg)
+            </div>
+<div class="col-span-2 text-right font-label-sm text-label-sm text-primary font-bold uppercase">
+              QoS 1 • Retain
+            </div>
+</div>
+<!-- Row 2: Level -->
+<div class="grid grid-cols-12 bg-surface-container-low px-space-md py-space-sm items-center hover:bg-surface-container transition-none">
+<div class="col-span-3 flex flex-col">
+<span class="font-body-md text-body-md text-primary font-bold uppercase">Niveau remplissage</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Jauge volumétrique</span>
+</div>
+<div class="col-span-5 font-mono font-body-sm text-body-sm text-primary flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span class="topic-preview" data-suffix="level_percent">silo/granules/level_percent</span>
+</div>
+<div class="col-span-2 font-label-sm text-label-sm text-on-surface-variant uppercase">
+              Entier 0-100 (%)
+            </div>
+<div class="col-span-2 text-right font-label-sm text-label-sm text-primary font-bold uppercase">
+              QoS 1 • Retain
+            </div>
+</div>
+<!-- Row 3: Battery -->
+<div class="grid grid-cols-12 bg-surface-container-low px-space-md py-space-sm items-center hover:bg-surface-container transition-none">
+<div class="col-span-3 flex flex-col">
+<span class="font-body-md text-body-md text-primary font-bold uppercase">Tension batterie</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tension cellule Li-Ion</span>
+</div>
+<div class="col-span-5 font-mono font-body-sm text-body-sm text-primary flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span class="topic-preview" data-suffix="battery_v">silo/granules/battery_v</span>
+</div>
+<div class="col-span-2 font-label-sm text-label-sm text-on-surface-variant uppercase">
+              Float (Volts)
+            </div>
+<div class="col-span-2 text-right font-label-sm text-label-sm text-primary font-bold uppercase">
+              QoS 1 • Retain
+            </div>
+</div>
+<!-- Row 4: LWT Status -->
+<div class="grid grid-cols-12 bg-surface-container-low px-space-md py-space-sm items-center hover:bg-surface-container transition-none">
+<div class="col-span-3 flex flex-col">
+<span class="font-body-md text-body-md text-primary font-bold uppercase">Statut LWT</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Last Will &amp; Testament</span>
+</div>
+<div class="col-span-5 font-mono font-body-sm text-body-sm text-primary flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span class="topic-preview" data-suffix="status">silo/granules/status</span>
+</div>
+<div class="col-span-2 font-label-sm text-label-sm text-on-surface-variant uppercase">
+              "online" / "offline"
+            </div>
+<div class="col-span-2 text-right font-label-sm text-label-sm text-primary font-bold uppercase">
+              QoS 1 • Retain: true
+            </div>
+</div>
+<!-- Row 5: Remote CMD -->
+<div class="grid grid-cols-12 bg-surface-container-low px-space-md py-space-sm items-center hover:bg-surface-container transition-none">
+<div class="col-span-3 flex flex-col">
+<span class="font-body-md text-body-md text-primary font-bold uppercase">Commande distante</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Souscription réceptrice</span>
+</div>
+<div class="col-span-5 font-mono font-body-sm text-body-sm text-primary flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span class="topic-preview" data-suffix="cmd">silo/granules/cmd</span>
+</div>
+<div class="col-span-2 font-label-sm text-label-sm text-on-surface-variant uppercase">
+              RAW (tare, measure, reset)
+            </div>
+<div class="col-span-2 text-right font-label-sm text-label-sm text-primary font-bold uppercase">
+              QoS 2 • No-Retain
+            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. CADENCE D'ENVOI & ÉCONOMIE D'ÉNERGIE -->
+<div class="bg-surface-container-lowest p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<span class="w-2 h-2 bg-primary inline-block"></span>
+<h2 class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary">
+            04. Cadence d'envoi &amp; Économie d'énergie
+          </h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Deep-Sleep Timer Manager</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Cadence Mode -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant" for="cadence-mode">
+            Mode d'envoi
+          </label>
+<select class="w-full bg-surface-container-low px-space-md py-space-sm font-body-md text-body-md text-primary font-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary shadow-none" id="cadence-mode">
+<option selected="" value="periodic">Périodique (toutes les 6 heures avec veille)</option>
+<option value="continuous">En continu (mode banc d'essai / setup actif)</option>
+<option value="threshold_only">Sur seuil d'écart uniquement</option>
+</select>
+<span class="font-label-sm text-label-sm text-on-surface-variant">L'ESP32 s'endort après émission de la trame</span>
+</div>
+<!-- Interval Deep-Sleep -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant" for="sleep-interval">
+            Intervalle veille profonde (Deep-Sleep)
+          </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low px-space-md py-space-sm font-body-md text-body-md text-primary font-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary shadow-none pr-space-xl" id="sleep-interval" type="number" value="21600"/>
+<span class="absolute right-space-md top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-on-surface-variant uppercase">SEC (6H 00M)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Consommation en veille : &lt; 15 µA</span>
+</div>
+<!-- Variation Threshold -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant" for="threshold-delta">
+            Seuil de variation pour envoi immédiat
+          </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low px-space-md py-space-sm font-body-md text-body-md text-primary font-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary shadow-none pr-space-xl" id="threshold-delta" type="text" value="2.0"/>
+<span class="absolute right-space-md top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-on-surface-variant uppercase">± KG</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Force le réveil anticipé si delta dépassé</span>
+</div>
+</div>
+</div>
+<!-- 5. BOUTONS D'ACTION ET CONSOLE DE TEST -->
+<div class="bg-surface-container-lowest p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="bg-primary hover:bg-primary-container text-on-primary px-space-xl py-space-md font-label-lg text-label-lg uppercase tracking-wider flex items-center justify-center gap-space-sm transition-none cursor-pointer" id="save-mqtt-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>Enregistrer les paramètres MQTT</span>
+</button>
+<button class="bg-surface-container-lowest hover:bg-surface-container text-primary px-space-xl py-space-md font-label-lg text-label-lg uppercase tracking-wider flex items-center justify-center gap-space-sm transition-none cursor-pointer border border-primary" id="test-mqtt-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>Envoyer un message de test MQTT</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant self-end sm:self-center">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span>EEPROM/NVS : SYNCHRONISÉ</span>
+</div>
+</div>
+<!-- Test output panel -->
+<div class="hidden bg-surface-container-low p-space-md flex flex-col gap-space-xs font-mono" id="test-console">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Journal de transmission local (Loopback/Broker)</span>
+<span id="test-timestamp">--:--:--</span>
+</div>
+<div class="font-body-sm text-body-sm text-primary" id="test-payload-log">
+          [INIT] Prêt pour émission de contrôle...
+        </div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initMqttPage() {
+    const baseTopicInput = document.getElementById('mqtt-base-topic');
+    const topicPreviews = document.querySelectorAll('.topic-preview');
+    const togglePwdBtn = document.getElementById('toggle-pwd-btn');
+    const pwdInput = document.getElementById('mqtt-pass');
+    const saveBtn = document.getElementById('save-mqtt-btn');
+    const testBtn = document.getElementById('test-mqtt-btn');
+    const consoleBox = document.getElementById('test-console');
+    const consoleLog = document.getElementById('test-payload-log');
+    const consoleTime = document.getElementById('test-timestamp');
+
+    // Dynamically update topic paths
+    if (baseTopicInput) {
+      baseTopicInput.addEventListener('input', (e) => {
+        let prefix = e.target.value.trim();
+        if (prefix && !prefix.endsWith('/')) {
+          prefix += '/';
+        }
+        topicPreviews.forEach(el => {
+          const suffix = el.getAttribute('data-suffix');
+          el.textContent = prefix + suffix;
+        });
+      });
+    }
+
+    // Password visibility toggle
+    if (togglePwdBtn && pwdInput) {
+      togglePwdBtn.addEventListener('click', () => {
+        const isPassword = pwdInput.getAttribute('type') === 'password';
+        pwdInput.setAttribute('type', isPassword ? 'text' : 'password');
+        togglePwdBtn.innerHTML = isPassword 
+          ? '<span class="material-symbols-outlined text-[16px]">visibility_off</span>' 
+          : '<span class="material-symbols-outlined text-[16px]">visibility</span>';
+      });
+    }
+
+    // Save action feedback
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        const originalText = saveBtn.innerHTML;
+        saveBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">done</span><span>Paramètres écrits en NVS !</span>';
+        saveBtn.classList.remove('bg-primary');
+        saveBtn.classList.add('bg-primary-container');
+        setTimeout(() => {
+          saveBtn.innerHTML = originalText;
+          saveBtn.classList.add('bg-primary');
+          saveBtn.classList.remove('bg-primary-container');
+        }, 2200);
+      });
+    }
+
+    // Send test packet simulation
+    if (testBtn && consoleBox && consoleLog && consoleTime) {
+      testBtn.addEventListener('click', () => {
+        consoleBox.classList.remove('hidden');
+        const now = new Date();
+        const timeStr = now.toTimeString().split(' ')[0] + '.' + String(now.getMilliseconds()).padStart(3, '0');
+        consoleTime.textContent = timeStr;
+        
+        const host = document.getElementById('mqtt-host')?.value || '192.168.1.50';
+        const port = document.getElementById('mqtt-port')?.value || '1883';
+        const base = document.getElementById('mqtt-base-topic')?.value || 'silo/granules/';
+        
+        consoleLog.innerHTML = `&gt;&gt; PUBLISH [${base}test] payload: {"device":"silo_scale_esp32_01","test":true,"rssi":-58,"weight_sim":4250.4}<br>&gt;&gt; TCP Socket ${host}:${port} -&gt; PUBACK reçu (14 ms). Trame validée par le Broker.`;
+      });
+    }
+  })();
+</script></main><footer class="w-full border-t border-outline-variant bg-surface-container-lowest mt-space-xl py-space-md"><div class="max-w-7xl mx-auto px-space-xl flex flex-col md:flex-row items-center justify-between gap-space-xs font-label-md text-label-md text-on-surface-variant"><div class="flex items-center gap-space-xs"><span>Balance Silo DIY ESP32</span><span>•</span><span>ESP-IDF / GxEPD2</span><span>•</span><span>FLASH: 64% LIBRE</span></div><div class="flex items-center gap-space-xs"><span>HEURE SYSTÈME: 20:46 02/10/24</span><span>•</span><span class="inline-block w-2 h-2 bg-primary"></span><span>SYNC OK</span></div></div></footer></body></html>
