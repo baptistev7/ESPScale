@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Balance Silo - Portail local de configuration</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#000000","secondary-container":"#e2e2e2","secondary-fixed":"#e2e2e2","on-tertiary":"#ffffff","surface-container-highest":"#e2e3df","on-primary":"#ffffff","primary-fixed":"#e2e2e2","primary":"#000000","surface-container-low":"#f4f4f0","on-primary-container":"#848484","surface-bright":"#faf9f5","secondary-fixed-dim":"#c6c6c6","on-surface":"#1a1c1a","on-background":"#1a1c1a","tertiary-fixed":"#e2e2e2","inverse-primary":"#c6c6c6","on-primary-fixed":"#1b1b1b","inverse-on-surface":"#f1f1ed","on-primary-fixed-variant":"#474747","error-container":"#ffdad6","background":"#faf9f5","on-error-container":"#93000a","error":"#ba1a1a","primary-container":"#1b1b1b","on-secondary":"#ffffff","on-surface-variant":"#4c4546","surface":"#faf9f5","surface-dim":"#dadad6","tertiary-container":"#1b1b1b","surface-tint":"#5e5e5e","tertiary-fixed-dim":"#c6c6c6","on-tertiary-fixed-variant":"#474747","secondary":"#5e5e5e","on-tertiary-fixed":"#1b1b1b","surface-container":"#eeeeea","on-secondary-fixed-variant":"#474747","on-error":"#ffffff","primary-fixed-dim":"#c6c6c6","surface-container-high":"#e8e8e4","surface-container-lowest":"#ffffff","on-tertiary-container":"#848484","surface-variant":"#e2e3df","inverse-surface":"#2f312e","on-secondary-fixed":"#1b1b1b","outline-variant":"#cfc4c5","on-secondary-container":"#646464","outline":"#7e7576"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"8px","space-xs":"2px","space-sm":"4px","space-xl":"12px","gutter":"4px","space-md":"6px","margin":"2px"},"fontFamily":{"label-lg":["JetBrains Mono"],"headline-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-md":["JetBrains Mono"],"body-sm":["JetBrains Mono"],"body-md":["JetBrains Mono"],"body-lg":["JetBrains Mono"],"headline-sm":["JetBrains Mono"],"label-sm":["JetBrains Mono"]},"fontSize":{"label-lg":["9px",{"lineHeight":"10px","letterSpacing":"0.75px","fontWeight":"700"}],"headline-lg":["28px",{"lineHeight":"28px","letterSpacing":"-0.5px","fontWeight":"800"}],"label-md":["8px",{"lineHeight":"9px","letterSpacing":"0.5px","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"20px","letterSpacing":"0px","fontWeight":"700"}],"body-sm":["9px",{"lineHeight":"11px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["10px",{"lineHeight":"12px","letterSpacing":"0px","fontWeight":"500"}],"body-lg":["11px",{"lineHeight":"13px","letterSpacing":"0px","fontWeight":"600"}],"headline-sm":["13px",{"lineHeight":"14px","letterSpacing":"0.5px","fontWeight":"700"}],"label-sm":["7px",{"lineHeight":"8px","letterSpacing":"0.5px","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-20 w-full max-w-7xl mx-auto px-space-xl flex flex-col justify-between pt-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="w-7 h-7 bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold tracking-tight">S</div><div><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm tracking-tight text-primary uppercase">Balance Silo</span><span class="bg-surface-container font-label-sm text-label-sm px-space-xs py-[1px] border border-outline-variant text-on-surface uppercase">AP-MODE</span></div><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Portail local de configuration</span></div></div><div class="hidden md:flex items-center gap-space-lg font-label-md text-label-md border border-outline-variant bg-surface-container-low px-space-md py-space-xs"><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">IP:</span><span class="text-primary font-bold">192.168.4.1</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">AP:</span><span class="text-primary font-bold">SILO-SETUP</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">UPTIME:</span><span class="text-primary font-bold">01j 04h 12m</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">FW:</span><span class="text-primary font-bold">v1.4.2</span></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav class="flex items-center gap-space-xs overflow-x-auto -mb-[1px]" data-active-classes="border-b-2 border-primary text-primary font-bold bg-surface-container-low"><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="etat" href="#">État</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-wifi" href="#">Réseau Wi-Fi</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-mqtt" href="#">Réseau MQTT</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="parametres-silo" href="#">Paramètres Silo</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-mesure-globale" href="#">Capteurs HX711</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-calibration" href="#">Calibration Masse</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-repartition-4-pieds" href="#">Répartition 4 Pieds</a></nav></div></header><main class="w-full max-w-7xl mx-auto px-space-xl pt-20 flex-1 bg-surface"><div class="flex flex-col w-full pb-space-xl">
+<!-- Sub-header metadata ticker -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-high px-space-md py-space-xs mb-space-lg text-on-surface">
+<div class="flex items-center gap-space-md">
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-primary flex items-center gap-space-xs">
+<span class="inline-block w-2 h-2 bg-primary"></span>
+        ESP32-WROOM-32U
+      </span>
+<span class="text-outline-variant">/</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">INTERFACE: wlan0 (STA + AP DUAL)</span>
+</div>
+<div class="flex items-center gap-space-md font-label-md text-label-md">
+<span class="text-on-surface-variant">PHY RATE: <strong class="text-primary">72.2 Mbps</strong></span>
+<span class="text-outline-variant">|</span>
+<span class="text-on-surface-variant">TX-POWER: <strong class="text-primary">19.5 dBm (MAX)</strong></span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Column: Live Status & AP Captif -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Section 1: Statut Actuel -->
+<div class="bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs bg-surface-container-high px-space-sm py-space-xs -mx-space-md -mt-space-md mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">router</span>
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-primary">01. STATUT ACTUEL DE LA CONNEXION</span>
+</div>
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-space-xs py-[1px] uppercase tracking-wider">EN LIGNE</span>
+</div>
+<!-- Connection state callout -->
+<div class="bg-surface-container-low p-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">État Wi-Fi Station</span>
+<div class="font-headline-sm text-headline-sm text-primary font-bold mt-[2px] leading-tight">
+            Connecté à 'Atelier_Pellets_2G'
+          </div>
+<div class="flex items-center justify-between mt-space-sm font-label-md text-label-md">
+<span class="text-on-surface-variant">Qualité Signal :</span>
+<span class="text-primary font-bold font-mono">-64 dBm / 78%</span>
+</div>
+<!-- Signal bar gauge -->
+<div class="w-full bg-surface-container-highest h-2 mt-space-xs p-[1px]">
+<div class="bg-primary h-full" style="width: 78%;"></div>
+</div>
+</div>
+<!-- Hardware & IP Details Data Matrix -->
+<div class="flex flex-col gap-[1px] bg-surface-container-high">
+<div class="bg-surface-container-lowest p-space-xs flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">IP Attribuée DHCP</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">192.168.1.145</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Masque sous-réseau</span>
+<span class="font-label-sm text-label-sm text-primary">255.255.255.0</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Passerelle Défaut</span>
+<span class="font-label-sm text-label-sm text-primary">192.168.1.1</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Serveur DNS Primaire</span>
+<span class="font-label-sm text-label-sm text-primary">192.168.1.1</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Adresse MAC (STA)</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">3C:71:BF:8A:42:10</span>
+</div>
+</div>
+<!-- Metric micro-widget -->
+<div class="bg-surface-container-low p-space-sm flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
+<span>PAQUETS RX/TX : <strong class="text-primary">14,290 / 8,112</strong></span>
+<span>ERREURS : <strong class="text-primary">0 (0.00%)</strong></span>
+</div>
+</div>
+<!-- Section 3: Paramètres du Point d'Accès Local (AP Captif) -->
+<div class="bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs bg-surface-container-high px-space-sm py-space-xs -mx-space-md -mt-space-md mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">cell_tower</span>
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-primary">03. POINT D'ACCÈS LOCAL (AP CAPTIF)</span>
+</div>
+<span class="bg-surface-container font-label-sm text-label-sm px-space-xs py-[1px] text-on-surface uppercase font-bold">ACTIF</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Configuration du hotspot de secours hébergé directement sur le microcontrôleur ESP32 pour les opérations de maintenance terrain.
+        </p>
+<div class="space-y-space-md">
+<!-- SSID AP -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-space-xs" for="ap_ssid">
+              Nom du réseau AP (SSID)
+            </label>
+<input class="w-full bg-surface-container-low text-primary font-label-lg text-label-lg px-space-sm py-space-xs outline-none rounded-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-inner" id="ap_ssid" type="text" value="SILO-SETUP"/>
+</div>
+<!-- Password AP -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-space-xs" for="ap_pass">
+              Clé WPA2 AP (Min. 8 caractères)
+            </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-primary font-label-lg text-label-lg px-space-sm py-space-xs pr-8 outline-none rounded-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-inner" id="ap_pass" type="password" value="silo123456"/>
+<button class="absolute right-0 top-0 bottom-0 px-space-sm flex items-center justify-center bg-surface-container hover:bg-surface-container-highest text-primary" onclick="togglePassVisibility('ap_pass', this)" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- AP Channel & Static IP dual layout -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-space-xs" for="ap_chan">
+                Canal d'émission
+              </label>
+<select class="w-full bg-surface-container-low text-primary font-label-md text-label-md px-space-sm py-space-xs outline-none rounded-none focus:bg-surface-container-lowest" id="ap_chan">
+<option selected="" value="1">Canal 1 (2412 MHz)</option>
+<option value="6">Canal 6 (2437 MHz)</option>
+<option value="11">Canal 11 (2462 MHz)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-space-xs">
+                Adresse Passerelle AP
+              </label>
+<div class="bg-surface-container-high px-space-sm py-space-xs font-label-md text-label-md text-primary font-bold">
+                192.168.4.1
+              </div>
+</div>
+</div>
+<!-- AP auto-disable checkbox -->
+<div class="bg-surface-container-low p-space-sm mt-space-sm">
+<label class="flex items-start gap-space-sm cursor-pointer select-none">
+<input checked="" class="mt-[2px] rounded-none accent-primary h-3.5 w-3.5" id="ap_fallback_mode" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface leading-tight">
+                Désactiver l'AP si connexion Wi-Fi station réussie
+                <span class="block text-on-surface-variant font-body-sm text-body-sm mt-space-xs">
+                  Réduit les perturbations radio et l'échauffement RF du chip. Réactivation auto en cas de perte de signal &gt; 3 min.
+                </span>
+</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Scanning & STA Configuration -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Section 2: RECHERCHE & CONNEXION AU RÉSEAU DU DOMICILE (CLIENT STA) -->
+<div class="bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs bg-surface-container-high px-space-sm py-space-xs -mx-space-md -mt-space-md mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">wifi_find</span>
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-primary">02. RECHERCHE &amp; CONNEXION AU RÉSEAU DU DOMICILE (CLIENT STA)</span>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-space-md py-space-xs uppercase tracking-wider flex items-center gap-space-xs hover:bg-neutral-800 transition-none active:scale-[0.99]" id="scan-trigger-btn" type="button">
+<span class="material-symbols-outlined text-[12px]" id="scan-icon">refresh</span>
+            Scanner les réseaux Wi-Fi disponibles
+          </button>
+</div>
+<!-- Network Scan Results Matrix Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-label-md text-label-md border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant uppercase">
+<th class="py-space-xs px-space-sm">SSID / Identifiant</th>
+<th class="py-space-xs px-space-sm">Signal (RSSI)</th>
+<th class="py-space-xs px-space-sm">Canal</th>
+<th class="py-space-xs px-space-sm">Sécurité</th>
+<th class="py-space-xs px-space-sm text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high" id="wifi-scan-tbody">
+<!-- Network 1 -->
+<tr class="bg-surface-container-low hover:bg-surface-container transition-none">
+<td class="py-space-sm px-space-sm font-bold text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+                  Atelier_Pellets_2G
+                  <span class="bg-primary text-on-primary font-label-sm text-label-sm px-space-xs">ACTIF</span>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface font-mono">
+                  -64 dBm <span class="text-on-surface-variant font-normal">(78%)</span>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface">Ch. 6</td>
+<td class="py-space-sm px-space-sm text-on-surface">WPA2-PSK</td>
+<td class="py-space-sm px-space-sm text-right">
+<button class="bg-surface-container-highest text-primary font-label-sm text-label-sm px-space-sm py-[3px] uppercase tracking-wider font-bold cursor-default" type="button">
+                    Sélectionné
+                  </button>
+</td>
+</tr>
+<!-- Network 2 -->
+<tr class="hover:bg-surface-container transition-none">
+<td class="py-space-sm px-space-sm font-bold text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">wifi</span>
+                  Maison_Principale
+                </td>
+<td class="py-space-sm px-space-sm text-on-surface font-mono">
+                  -82 dBm <span class="text-on-surface-variant font-normal">(42%)</span>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface">Ch. 1</td>
+<td class="py-space-sm px-space-sm text-on-surface">WPA2/WPA3</td>
+<td class="py-space-sm px-space-sm text-right">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-space-sm py-[3px] uppercase tracking-wider hover:bg-neutral-800" onclick="selectSSID('Maison_Principale')" type="button">
+                    Sélectionner
+                  </button>
+</td>
+</tr>
+<!-- Network 3 -->
+<tr class="hover:bg-surface-container transition-none">
+<td class="py-space-sm px-space-sm font-bold text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">wifi_1_bar</span>
+                  Garage_Ext
+                </td>
+<td class="py-space-sm px-space-sm text-on-surface font-mono">
+                  -89 dBm <span class="text-on-surface-variant font-normal">(24%)</span>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface">Ch. 11</td>
+<td class="py-space-sm px-space-sm text-on-surface">WPA2</td>
+<td class="py-space-sm px-space-sm text-right">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-space-sm py-[3px] uppercase tracking-wider hover:bg-neutral-800" onclick="selectSSID('Garage_Ext')" type="button">
+                    Sélectionner
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-surface-container-high h-[1px] my-space-xs"></div>
+<!-- Connection Parameters Form -->
+<div class="flex flex-col gap-space-md">
+<div class="font-label-lg text-label-lg uppercase tracking-wider text-primary">
+            Paramètres d'authentification et adressage IP
+          </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Target SSID Field -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-space-xs" for="sta_ssid">
+                SSID Réseau Cible
+              </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-primary font-label-lg text-label-lg px-space-sm py-space-xs outline-none rounded-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-inner" id="sta_ssid" type="text" value="Atelier_Pellets_2G"/>
+</div>
+</div>
+<!-- STA Password Field -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-space-xs" for="sta_pass">
+                Mot de Passe Wi-Fi (WPA / WPA2)
+              </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-primary font-label-lg text-label-lg px-space-sm py-space-xs pr-8 outline-none rounded-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-inner font-mono" id="sta_pass" type="password" value="GranulesBio2024!Secure"/>
+<button class="absolute right-0 top-0 bottom-0 px-space-sm flex items-center justify-center bg-surface-container hover:bg-surface-container-highest text-primary" onclick="togglePassVisibility('sta_pass', this)" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- IP Mode Selection (Radio Rectangular) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-space-xs">
+              Attribution de l'adresse IP
+            </label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<label class="flex items-center gap-space-sm p-space-sm bg-surface-container-low hover:bg-surface-container cursor-pointer">
+<input checked="" class="rounded-none accent-primary h-3.5 w-3.5" name="ip_allocation" onchange="toggleStaticFields(false)" type="radio" value="dhcp"/>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary uppercase">DHCP Automatique (Recommandé)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">L'adresse et le routage sont attribués par la box/routeur</span>
+</div>
+</label>
+<label class="flex items-center gap-space-sm p-space-sm bg-surface-container-low hover:bg-surface-container cursor-pointer">
+<input class="rounded-none accent-primary h-3.5 w-3.5" name="ip_allocation" onchange="toggleStaticFields(true)" type="radio" value="static"/>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary uppercase">IP Statique Forcée</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Définit une adresse immuable hors pool dynamique</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Static IP Settings Panel (conditionally visible/interactive) -->
+<div class="opacity-40 pointer-events-none transition-none grid grid-cols-1 sm:grid-cols-3 gap-space-sm bg-surface-container p-space-sm" id="static_ip_container">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-[2px]">IP Fixe</label>
+<input class="w-full bg-surface-container-lowest text-primary font-mono text-label-md px-space-xs py-[2px] outline-none" type="text" value="192.168.1.250"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-[2px]">Passerelle</label>
+<input class="w-full bg-surface-container-lowest text-primary font-mono text-label-md px-space-xs py-[2px] outline-none" type="text" value="192.168.1.1"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-[2px]">Masque Réseau</label>
+<input class="w-full bg-surface-container-lowest text-primary font-mono text-label-md px-space-xs py-[2px] outline-none" type="text" value="255.255.255.0"/>
+</div>
+</div>
+<!-- Reconnection policy dropdown -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md items-center">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase mb-space-xs" for="reconnect_retries">
+                Tentatives de reconnexion automatique
+              </label>
+<select class="w-full bg-surface-container-low text-primary font-label-lg text-label-lg px-space-sm py-space-xs outline-none rounded-none focus:bg-surface-container-lowest" id="reconnect_retries">
+<option value="3">3 essais puis mise en veille</option>
+<option selected="" value="5">5 essais puis mise en veille</option>
+<option value="10">10 essais puis mise en veille</option>
+<option value="inf">Infini (déconseillé sur batterie)</option>
+</select>
+</div>
+<div class="bg-surface-container-low p-space-sm">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant block">Stratégie d'Économie Énergie</span>
+<span class="font-body-sm text-body-sm text-on-surface block mt-[2px]">
+                En cas d'échec répété, le modem entre en Deep-Sleep 15 minutes avant tentative suivante afin de préserver la batterie du silo.
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Center Footer Toolbar -->
+<div class="bg-surface-container-lowest p-space-md shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span>Redémarrage du sous-système réseau requis : ~3.5 secondes</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm w-full sm:w-auto">
+<!-- Button 2: Test ping -->
+<button class="flex-1 sm:flex-none bg-surface-container text-primary font-label-lg text-label-lg uppercase tracking-wider px-space-lg py-space-md hover:bg-surface-container-highest active:bg-primary active:text-on-primary transition-none flex items-center justify-center gap-space-xs" id="ping-test-btn" onclick="executePingTest()" type="button">
+<span class="material-symbols-outlined text-[14px]">network_ping</span>
+            Tester la connexion ping passerelle
+          </button>
+<!-- Button 1: Save and reconnect -->
+<button class="flex-1 sm:flex-none bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-wider px-space-xl py-space-md hover:bg-neutral-800 active:scale-[0.99] transition-none flex items-center justify-center gap-space-xs" id="save-connect-btn" onclick="triggerReconnect()" type="button">
+<span class="material-symbols-outlined text-[14px]">save</span>
+            Enregistrer et reconnecter le Wi-Fi
+          </button>
+</div>
+</div>
+<!-- Real-time diagnostic console banner (hidden by default, revealed on test) -->
+<div class="hidden bg-primary text-on-primary p-space-sm font-mono font-label-md text-label-md flex items-center justify-between" id="diag-console">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+<span id="diag-message">PING 192.168.1.1 (Passerelle) : 4 paquets transmis, 4 reçus, 0% packet loss, min/avg/max = 2.1/3.4/5.9 ms</span>
+</div>
+<button class="text-on-primary hover:underline uppercase font-bold text-label-sm" onclick="document.getElementById('diag-console').classList.add('hidden')" type="button">FERMER</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function togglePassVisibility(inputId, triggerBtn) {
+    const input = document.getElementById(inputId);
+    const icon = triggerBtn.querySelector('.material-symbols-outlined');
+    if (!input) return;
+    if (input.type === 'password') {
+      input.type = 'text';
+      if (icon) icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      if (icon) icon.textContent = 'visibility';
+    }
+  }
+
+  function selectSSID(ssidName) {
+    const staInput = document.getElementById('sta_ssid');
+    if (staInput) {
+      staInput.value = ssidName;
+      staInput.focus();
+    }
+  }
+
+  function toggleStaticFields(enable) {
+    const container = document.getElementById('static_ip_container');
+    if (!container) return;
+    if (enable) {
+      container.classList.remove('opacity-40', 'pointer-events-none');
+    } else {
+      container.classList.add('opacity-40', 'pointer-events-none');
+    }
+  }
+
+  function executePingTest() {
+    const consoleBox = document.getElementById('diag-console');
+    const msg = document.getElementById('diag-message');
+    if (!consoleBox || !msg) return;
+    
+    consoleBox.classList.remove('hidden');
+    msg.textContent = 'PING 192.168.1.1 en cours... Envoi de paquets ICMP 32 octets...';
+    
+    setTimeout(() => {
+      msg.textContent = 'PING 192.168.1.1 : 4 paquets transmis, 4 reçus, 0% perte, RTT moy = 3.2 ms. ACCÈS PASSERELLE OPÉRATIONNEL.';
+    }, 600);
+  }
+
+  function triggerReconnect() {
+    const saveBtn = document.getElementById('save-connect-btn');
+    if (!saveBtn) return;
+    const initialText = saveBtn.innerHTML;
+    saveBtn.innerHTML = '<span class="material-symbols-outlined text-[14px] animate-spin">sync</span> Enregistrement flash &amp; NVS...';
+    saveBtn.classList.add('opacity-75');
+
+    setTimeout(() => {
+      saveBtn.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span> Paramètres appliqués (STA Reboot OK)';
+      saveBtn.classList.remove('opacity-75');
+      setTimeout(() => {
+        saveBtn.innerHTML = initialText;
+      }, 2500);
+    }, 1200);
+  }
+
+  document.getElementById('scan-trigger-btn')?.addEventListener('click', function() {
+    const icon = document.getElementById('scan-icon');
+    if (icon) icon.classList.add('animate-spin');
+    setTimeout(() => {
+      if (icon) icon.classList.remove('animate-spin');
+    }, 900);
+  });
+</script></main><footer class="w-full border-t border-outline-variant bg-surface-container-lowest mt-space-xl py-space-md"><div class="max-w-7xl mx-auto px-space-xl flex flex-col md:flex-row items-center justify-between gap-space-xs font-label-md text-label-md text-on-surface-variant"><div class="flex items-center gap-space-xs"><span>Balance Silo DIY ESP32</span><span>•</span><span>ESP-IDF / GxEPD2</span><span>•</span><span>FLASH: 64% LIBRE</span></div><div class="flex items-center gap-space-xs"><span>HEURE SYSTÈME: 20:46 02/10/24</span><span>•</span><span class="inline-block w-2 h-2 bg-primary"></span><span>SYNC OK</span></div></div></footer></body></html>

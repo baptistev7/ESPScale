@@ -1,0 +1,59 @@
+# =============================================================================
+# ESP Scale — Home Assistant : helpers (input_number)
+# =============================================================================
+# Archi "poids = référence" : le stock (kg) est scale_poids, publié par la
+# balance — PAS un input_number. Restent ici les états purement comptables :
+# valeur € du stock, prix moyen, compteurs cumulés (source des utility_meter)
+# et seuil d'alerte.
+#
+# ⚠️ INITIALISATION (une seule fois) : régler scale_stock_value_eur = ce que le
+# stock ACTUEL (poids affiché par scale_poids) a coûté. Le prix €/kg se
+# recalcule automatiquement.
+
+input_number:
+  # Valeur € du stock (ce qu'on a payé pour le kg encore présent)
+  scale_stock_value_eur:
+    name: "Valeur stock (€)"
+    unit_of_measurement: "EUR"
+    min: 0
+    max: 2000
+    step: 0.01
+    mode: box
+
+  # Prix unitaire courant (€/kg) = valeur / poids_actuel — recalculé par les
+  # automatisations après chaque mouvement. Éditable manuellement si besoin.
+  scale_unit_price_eur_kg:
+    name: "Prix unitaire (€/kg)"
+    unit_of_measurement: "EUR/kg"
+    min: 0
+    max: 5
+    step: 0.01
+    mode: box
+
+  # Compteur CUMULATIF de consommation (ne se reset pas) — source des
+  # utility_meter daily/monthly/yearly. Incrémenté à chaque baisse de poids.
+  scale_consumption_total_kg:
+    name: "Conso totale (kg)"
+    unit_of_measurement: "kg"
+    min: 0
+    max: 100000
+    step: 0.1
+    mode: box
+
+  # Compteur CUMULATIF du coût (€) — incrémenté à chaque baisse de poids
+  # (kg × prix unitaire courant). Alimente les utility_meter €.
+  scale_consumption_total_eur:
+    name: "Coût total (€)"
+    unit_of_measurement: "EUR"
+    min: 0
+    max: 100000
+    step: 0.01
+    mode: box
+
+  # Seuil d'alerte "silo faible" en jours restants estimés
+  scale_alert_days:
+    name: "Seuil alerte (jours)"
+    min: 1
+    max: 60
+    step: 1
+    mode: slider

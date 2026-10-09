@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Balance Silo - Portail local de configuration</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#000000","secondary-container":"#e2e2e2","secondary-fixed":"#e2e2e2","on-tertiary":"#ffffff","surface-container-highest":"#e2e3df","on-primary":"#ffffff","primary-fixed":"#e2e2e2","primary":"#000000","surface-container-low":"#f4f4f0","on-primary-container":"#848484","surface-bright":"#faf9f5","secondary-fixed-dim":"#c6c6c6","on-surface":"#1a1c1a","on-background":"#1a1c1a","tertiary-fixed":"#e2e2e2","inverse-primary":"#c6c6c6","on-primary-fixed":"#1b1b1b","inverse-on-surface":"#f1f1ed","on-primary-fixed-variant":"#474747","error-container":"#ffdad6","background":"#faf9f5","on-error-container":"#93000a","error":"#ba1a1a","primary-container":"#1b1b1b","on-secondary":"#ffffff","on-surface-variant":"#4c4546","surface":"#faf9f5","surface-dim":"#dadad6","tertiary-container":"#1b1b1b","surface-tint":"#5e5e5e","tertiary-fixed-dim":"#c6c6c6","on-tertiary-fixed-variant":"#474747","secondary":"#5e5e5e","on-tertiary-fixed":"#1b1b1b","surface-container":"#eeeeea","on-secondary-fixed-variant":"#474747","on-error":"#ffffff","primary-fixed-dim":"#c6c6c6","surface-container-high":"#e8e8e4","surface-container-lowest":"#ffffff","on-tertiary-container":"#848484","surface-variant":"#e2e3df","inverse-surface":"#2f312e","on-secondary-fixed":"#1b1b1b","outline-variant":"#cfc4c5","on-secondary-container":"#646464","outline":"#7e7576"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"8px","space-xs":"2px","space-sm":"4px","space-xl":"12px","gutter":"4px","space-md":"6px","margin":"2px"},"fontFamily":{"label-lg":["JetBrains Mono"],"headline-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-md":["JetBrains Mono"],"body-sm":["JetBrains Mono"],"body-md":["JetBrains Mono"],"body-lg":["JetBrains Mono"],"headline-sm":["JetBrains Mono"],"label-sm":["JetBrains Mono"]},"fontSize":{"label-lg":["9px",{"lineHeight":"10px","letterSpacing":"0.75px","fontWeight":"700"}],"headline-lg":["28px",{"lineHeight":"28px","letterSpacing":"-0.5px","fontWeight":"800"}],"label-md":["8px",{"lineHeight":"9px","letterSpacing":"0.5px","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"20px","letterSpacing":"0px","fontWeight":"700"}],"body-sm":["9px",{"lineHeight":"11px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["10px",{"lineHeight":"12px","letterSpacing":"0px","fontWeight":"500"}],"body-lg":["11px",{"lineHeight":"13px","letterSpacing":"0px","fontWeight":"600"}],"headline-sm":["13px",{"lineHeight":"14px","letterSpacing":"0.5px","fontWeight":"700"}],"label-sm":["7px",{"lineHeight":"8px","letterSpacing":"0.5px","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-20 w-full max-w-7xl mx-auto px-space-xl flex flex-col justify-between pt-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="w-7 h-7 bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold tracking-tight">S</div><div><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm tracking-tight text-primary uppercase">Balance Silo</span><span class="bg-surface-container font-label-sm text-label-sm px-space-xs py-[1px] border border-outline-variant text-on-surface uppercase">AP-MODE</span></div><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Portail local de configuration</span></div></div><div class="hidden md:flex items-center gap-space-lg font-label-md text-label-md border border-outline-variant bg-surface-container-low px-space-md py-space-xs"><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">IP:</span><span class="text-primary font-bold">192.168.4.1</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">AP:</span><span class="text-primary font-bold">SILO-SETUP</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">UPTIME:</span><span class="text-primary font-bold">01j 04h 12m</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">FW:</span><span class="text-primary font-bold">v1.4.2</span></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav class="flex items-center gap-space-xs overflow-x-auto -mb-[1px]" data-active-classes="border-b-2 border-primary text-primary font-bold bg-surface-container-low"><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="etat" href="#">État</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-wifi" href="#">Réseau Wi-Fi</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-mqtt" href="#">Réseau MQTT</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="parametres-silo" href="#">Paramètres Silo</a><a aria-current="page" class="px-space-md py-space-xs uppercase tracking-wider transition-none border-b-2 border-primary text-primary font-bold bg-surface-container-low" data-path="capteurs-mesure-globale" href="#">Capteurs HX711</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-calibration" href="#">Calibration Masse</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-repartition-4-pieds" href="#">Répartition 4 Pieds</a></nav></div></header><main class="w-full max-w-7xl mx-auto px-space-xl pt-20 flex-1 bg-surface"><div class="flex flex-col w-full">
+<div class="w-full pb-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md py-space-lg bg-surface">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-space-xs py-[2px] uppercase tracking-wider">CH-A1</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Étage d'Acquisition Analogique HX711</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">STREAM LIVE 80Hz</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary uppercase tracking-tight">Supervision Métrologique HX711 • A/D 24-Bits</div>
+</div>
+<div class="flex items-center gap-space-sm font-label-md text-label-md">
+<div class="px-space-md py-space-xs bg-surface-container text-on-surface">BROCHE GAIN: <span class="font-bold">128 (PGA CH-A)</span></div>
+<div class="px-space-md py-space-xs bg-surface-container text-on-surface">VREF INTERNE: <span class="font-bold">AVDD (3.302 V)</span></div>
+<div class="px-space-md py-space-xs bg-surface-container-highest text-primary font-bold">ENR. CONTINU: ACTIF</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md mt-space-sm">
+<section class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-space-sm bg-surface-container-low px-space-md py-space-xs">
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-primary">01 // Valeur Convertisseur A/D 24 Bits Brute (Raw ADC Counts)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">REG: 0x446485 • SIGMA-DELTA DIFFÉRENTIEL</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md my-space-md items-center">
+<div class="md:col-span-7 bg-surface-container-low p-space-lg">
+<div class="flex justify-between items-baseline">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Mesure instantanée</span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold" id="adc-hex-tag">0x446485</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tighter" id="adc-counter">4,482,109</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant uppercase">POINTS (LSB)</span>
+</div>
+<div class="mt-space-sm pt-space-xs bg-surface-container px-space-sm py-[2px] flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">FLOTTEMENT BRUT DERNIÈRE SECONDE :</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">±8 LSB (~0.053 kg)</span>
+</div>
+</div>
+<div class="md:col-span-5 flex flex-col justify-between gap-space-sm h-full">
+<div class="bg-surface-container-low p-space-md flex-1">
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm mb-space-xs">
+<span>PLAGE DE CONVERSION</span>
+<span class="text-primary font-bold">53.4% OCCUPÉE</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest relative overflow-hidden">
+<div class="h-full bg-primary" style="width: 53.4%;"></div>
+<div class="absolute inset-y-0 left-[85%] w-0.5 bg-error-container"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mt-[3px]">
+<span>0x000000 (0)</span>
+<span>MARGE RESTANTE: 46.8%</span>
+<span>0x7FFFFF (8.38M)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="bg-surface-container-low p-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">FRÉQUENCE</span>
+<span class="font-body-lg text-body-lg text-primary font-bold block mt-[2px]">80 SPS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">PIN RATE -&gt; VCC</span>
+</div>
+<div class="bg-surface-container-low p-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">NOISE RMS</span>
+<span class="font-body-lg text-body-lg text-primary font-bold block mt-[2px]">12 LSB</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">~0.08 kg EQ</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md mt-space-sm">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase font-bold text-primary">STABILITÉ DU SIGNAL ANALOGIQUE (60s HORODATÉES)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">FENÊTRE GLISSANTE</span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant mt-space-xs sm:mt-0">
+<span>ECHELLE: ±0.20% FS</span>
+<span>DELTA MAX: +18 LSB</span>
+<span class="text-primary font-bold">STATUS: STABLE</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-lowest p-space-xs my-space-xs">
+<svg aria-label="Stabilité du signal sur 60 secondes" class="w-full h-24 overflow-visible" preserveaspectratio="none" viewbox="0 0 600 90">
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="0" x2="600" y1="15" y2="15"></line>
+<line class="text-secondary-fixed-dim" stroke="currentColor" stroke-width="1" x1="0" x2="600" y1="45" y2="45"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="0" x2="600" y1="75" y2="75"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="100" x2="100" y1="0" y2="90"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="200" x2="200" y1="0" y2="90"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="300" x2="300" y1="0" y2="90"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="400" x2="400" y1="0" y2="90"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="500" x2="500" y1="0" y2="90"></line>
+<polyline class="text-primary" fill="none" points="
+                    0,46 15,44 30,47 45,45 60,44 75,46 90,43 105,47 120,46 135,45 150,44 165,48 
+                    180,45 195,44 210,43 225,46 240,45 255,47 270,44 285,45 300,43 315,46 330,44 
+                    345,45 360,47 375,44 390,46 405,45 420,43 435,46 450,44 465,45 480,47 495,43 
+                    510,45 525,44 540,46 555,45 570,47 585,44 600,45
+                  " stroke="currentColor" stroke-width="1.5"></polyline>
+<circle class="fill-primary" cx="600" cy="45" r="3"></circle>
+</svg>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant px-space-xs">
+<span>T - 60s</span>
+<span>T - 45s</span>
+<span>T - 30s</span>
+<span>T - 15s</span>
+<span class="text-primary font-bold">TEMPS RÉEL (T=0)</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-low px-space-md py-space-xs">
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-primary">02 // Traitement et Filtrage Numérique du Signal</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">PIPELINE DSP EMBARQUÉ</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md mt-space-md">
+<div class="bg-surface-container-low p-space-md flex flex-col justify-between">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase block" for="dsp-algo">Algorithme de lissage &amp; filtrage</label>
+<div class="relative mt-space-xs">
+<select class="w-full bg-surface-container-lowest text-primary font-body-lg text-body-lg px-space-md py-space-sm appearance-none focus:outline-none focus:bg-secondary-container" id="dsp-algo">
+<option selected="">EMA (Exponentiel) + Rejet Impulsions Aberrantes</option>
+<option>Moyenne Glissante Simple (SMA) - 32 pts</option>
+<option>Filtre Kalman 1D Unidimensionnel</option>
+<option>Médian 5 Échantillons + EMA Doux</option>
+<option>Signal Brut (Aucun Traitement Métrologique)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-1/2 -translate-y-1/2 pointer-events-none text-primary text-[18px]">expand_more</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-space-sm">
+                  Lissage récursif à faible latence combiné à un filtre non linéaire d'élimination des rebonds transitoires de la vis d'alimentation.
+                </p>
+</div>
+<div class="mt-space-md pt-space-xs bg-surface-container p-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold block">EFFICACITÉ THÉORIQUE ATTÉNUATION</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">-24.2 dB sur bruit périodique 12.5 Hz</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md flex flex-col gap-space-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-baseline">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase" for="input-alpha">Facteur d'amortissement Alpha (α)</label>
+<span class="font-label-sm text-label-sm text-primary font-bold">0.01 - 0.99</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<input class="w-24 bg-surface-container-lowest text-primary font-body-lg text-body-lg px-space-md py-space-xs focus:outline-none focus:bg-secondary-container" id="input-alpha" type="text" value="0.15"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Lissage fort anti-vibration</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-baseline">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase" for="input-shock">Seuil rejet choc mécanique</label>
+<span class="font-label-sm text-label-sm text-primary font-bold">LIMIT: RATE-OF-CHANGE</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<input class="w-24 bg-surface-container-lowest text-primary font-body-lg text-body-lg px-space-md py-space-xs focus:outline-none focus:bg-secondary-container" id="input-shock" type="text" value="15.0"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">kg / seconde (Gradient)</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-xs mt-auto">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">Fenêtre de détection de stabilité</span>
+<span class="font-label-sm text-label-sm text-primary font-bold block mt-[1px]">5 échantillons consécutifs dans ±0.20 kg</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<aside class="lg:col-span-4 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-low px-space-md py-space-xs">
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-primary">03 // Tare &amp; Offset Physique</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">ZÉRO-TRACKING</span>
+</div>
+<div class="flex flex-col gap-space-sm mt-space-md">
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Valeur actuelle tare brute (Offset LSB)</span>
+<span class="font-headline-md text-headline-md text-primary tracking-tight block mt-[2px]">-1,200,450</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-space-xs">Offset statique de la structure métallique à vide</span>
+</div>
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Horodatage de la tare active</span>
+<span class="font-body-lg text-body-lg text-primary block mt-[2px]">02/10/24 à 14:22:10</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-space-xs">Validée par opérateur technique (Session #04)</span>
+</div>
+<div class="bg-surface-container-low p-space-md">
+<div class="flex justify-between items-baseline">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Dérive thermique mesurée</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">T=19.4°C</span>
+</div>
+<span class="font-body-lg text-body-lg text-primary block mt-[2px]">+0.012 kg / °C</span>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="inline-block w-2 h-2 bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Compensation thermorésistive active</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant uppercase">Pente d'étalonnage globale:</span>
+<span class="text-primary font-bold">22.840 pts / kg</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-low px-space-md py-space-xs">
+<span class="font-label-lg text-label-lg uppercase tracking-wider text-primary">04 // Contrôles &amp; Diagnostics</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">OPÉRATIONS</span>
+</div>
+<div class="flex flex-col gap-space-sm mt-space-md">
+<button class="w-full bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-wider py-space-md px-space-lg text-left flex items-center justify-between transition-none hover:bg-tertiary-container focus:outline-none" id="btn-tare">
+<span>Effectuer une tare à vide (Zero Tare)</span>
+<span class="material-symbols-outlined text-on-primary text-[18px]">adjust</span>
+</button>
+<button class="w-full bg-surface-container-low text-primary font-label-lg text-label-lg uppercase tracking-wider py-space-md px-space-lg text-left flex items-center justify-between transition-none hover:bg-surface-container-highest focus:outline-none" id="btn-noise-test">
+<span>Lancer test bruit ADC (60s)</span>
+<span class="material-symbols-outlined text-primary text-[18px]">equalizer</span>
+</button>
+<button class="w-full bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-wider py-space-md px-space-lg text-left flex items-center justify-between transition-none hover:bg-tertiary-container focus:outline-none" id="btn-save-params">
+<span>Sauvegarder les paramètres DSP</span>
+<span class="material-symbols-outlined text-on-primary text-[18px]">save</span>
+</button>
+<div class="bg-surface-container p-space-sm font-label-sm text-label-sm text-on-surface-variant min-h-[50px] flex flex-col justify-end" id="action-terminal">
+<div>&gt; SYSTÈME PRÊT • HX711 COMM PRÊT</div>
+<div class="text-primary font-bold" id="terminal-last-log">&gt; CONVERTISSEUR VÉRIFIÉ (80 SPS SYNCHRONE)</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md">
+<div class="font-label-sm text-label-sm text-primary uppercase font-bold mb-space-xs">Matériel &amp; Registre T5 TTGO</div>
+<div class="space-y-[3px] font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex justify-between"><span>LIGNE SCK :</span><span class="text-primary font-bold">GPIO 18</span></div>
+<div class="flex justify-between"><span>LIGNE DOUT :</span><span class="text-primary font-bold">GPIO 19</span></div>
+<div class="flex justify-between"><span>DÉLAI DE VEILLE :</span><span class="text-primary font-bold">DÉSACTIVÉ (VCC CONST.)</span></div>
+<div class="flex justify-between"><span>RÉSOLUTION :</span><span class="text-primary font-bold">24 BITS SIGNÉS</span></div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    (function initHX711Monitor() {
+      const counterEl = document.getElementById('adc-counter');
+      const hexTagEl = document.getElementById('adc-hex-tag');
+      const terminalEl = document.getElementById('terminal-last-log');
+      const btnTare = document.getElementById('btn-tare');
+      const btnNoise = document.getElementById('btn-noise-test');
+      const btnSave = document.getElementById('btn-save-params');
+
+      let currentVal = 4482109;
+
+      setInterval(() => {
+        const delta = Math.floor(Math.random() * 19) - 9;
+        currentVal += delta;
+        if (counterEl) {
+          counterEl.textContent = currentVal.toLocaleString('fr-FR');
+        }
+        if (hexTagEl) {
+          hexTagEl.textContent = '0x' + Math.max(0, currentVal).toString(16).toUpperCase().padStart(6, '0');
+        }
+      }, 250);
+
+      function logMessage(msg) {
+        if (terminalEl) {
+          terminalEl.textContent = '> ' + msg;
+        }
+      }
+
+      if (btnTare) {
+        btnTare.addEventListener('click', () => {
+          logMessage('TARE EFFECTUÉE: OFFSET CALIBRÉ À ' + currentVal.toLocaleString('fr-FR') + ' LSB');
+        });
+      }
+
+      if (btnNoise) {
+        btnNoise.addEventListener('click', () => {
+          logMessage('TEST DE BRUIT EN COURS (60S)... ÉCHANTILLONNAGE 4800 POINTS');
+        });
+      }
+
+      if (btnSave) {
+        btnSave.addEventListener('click', () => {
+          const alpha = document.getElementById('input-alpha') ? document.getElementById('input-alpha').value : '0.15';
+          const shock = document.getElementById('input-shock') ? document.getElementById('input-shock').value : '15.0';
+          logMessage('PARAMÈTRES ENREGISTRÉS EN EEPROM (ALPHA=' + alpha + ', SEUIL=' + shock + 'kg/s)');
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full border-t border-outline-variant bg-surface-container-lowest mt-space-xl py-space-md"><div class="max-w-7xl mx-auto px-space-xl flex flex-col md:flex-row items-center justify-between gap-space-xs font-label-md text-label-md text-on-surface-variant"><div class="flex items-center gap-space-xs"><span>Balance Silo DIY ESP32</span><span>•</span><span>ESP-IDF / GxEPD2</span><span>•</span><span>FLASH: 64% LIBRE</span></div><div class="flex items-center gap-space-xs"><span>HEURE SYSTÈME: 20:46 02/10/24</span><span>•</span><span class="inline-block w-2 h-2 bg-primary"></span><span>SYNC OK</span></div></div></footer></body></html>

@@ -1,0 +1,291 @@
+# =============================================================================
+# ESP Scale — Home Assistant : vue "Silo" (mode sections, cartes HACS)
+# =============================================================================
+# Cartes HACS requises : mushroom, apexcharts-card, button-card, fluid-level-background-card.
+# À coller dans un dashboard en mode sections (éditeur brut).
+# Silo de 670 kg (TANK_FULL_KG), niveau bas à 134 kg (20 %), orange sous 268 kg :
+# adapter ces valeurs dans le hero (button-card), la courbe de poids et ses seuils.
+
+type: sections
+title: Silo
+path: silo
+icon: mdi:silo
+max_columns: 3
+sections:
+- type: grid
+  cards:
+  - type: custom:mushroom-title-card
+    title: Silo à granulés
+    subtitle: Niveau et autonomie
+  - type: custom:fluid-level-background-card
+    entity: sensor.scale_poids
+    full_value: 670
+    severity:
+    - value: 40
+      color: '#43a047'
+    - value: 20
+      color: '#fb8c00'
+    - value: 0
+      color: '#e53935'
+    card:
+      type: custom:button-card
+      entity: sensor.scale_poids
+      show_icon: false
+      show_state: false
+      show_name: true
+      show_label: true
+      name: '[[[ const v=parseFloat(entity.state)||0; return ''<span style="font-size:4.6rem;font-weight:700;line-height:1">''+Math.round(v)+''</span><span
+        style="font-size:1.6rem;font-weight:400"> kg</span>''; ]]]'
+      label: '[[[ const v=parseFloat(entity.state)||0; const p=Math.round(Math.min(100,Math.max(0,v/670*100)));
+        const j=parseFloat(states[''sensor.scale_jours_restants''].state); const lvl=v<134?''Niveau bas'':v<268?''À
+        surveiller'':''Niveau correct''; return p+'' % · ''+lvl+(isNaN(j)?'''':'' · environ ''+Math.round(j)+''
+        jours''); ]]]'
+      tap_action:
+        action: more-info
+      styles:
+        card:
+        - 'height: 263px'
+        - 'border-radius: 24px'
+        - 'overflow: hidden'
+        - 'padding: 0'
+        - 'background: none'
+        - 'box-shadow: none'
+        grid:
+        - 'grid-template-areas: ''"n" "l"'''
+        - 'grid-template-columns: 100%'
+        - 'grid-template-rows: 1fr 1fr'
+        - 'height: 100%'
+        name:
+        - 'justify-self: start'
+        - 'align-self: end'
+        - 'text-align: left'
+        - 'padding: 0 28px'
+        - 'white-space: normal'
+        - 'overflow: visible'
+        label:
+        - 'justify-self: start'
+        - 'align-self: start'
+        - 'text-align: left'
+        - 'padding: 8px 28px 0'
+        - 'opacity: 0.85'
+        - 'font-size: 1.15rem'
+      card_mod:
+        style: "ha-card {\n  height: 263px !important;\n  background: none !important;\n  box-shadow: none !important;\n\
+          \  border: none !important;\n}\n"
+    grid_options:
+      columns: full
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+    - type: custom:mushroom-entity-card
+      entity: sensor.scale_conso_moyenne
+      name: Conso moyenne
+      layout: vertical
+      fill_container: true
+      icon: mdi:chart-timeline-variant
+      icon_color: orange
+    - type: custom:mushroom-template-card
+      primary: '{{ states(''sensor.scale_batterie'') }} %'
+      secondary: Batterie
+      icon: '{{ ''mdi:battery'' if states(''sensor.scale_batterie'')|int(0) >= 90 else ''mdi:battery-60'' if states(''sensor.scale_batterie'')|int(0)
+        >= 50 else ''mdi:battery-30'' }}'
+      icon_color: '{% set b = states(''sensor.scale_batterie'') | int(0) %}{{ ''red'' if b < 20 else ''orange''
+        if b < 40 else ''green'' }}'
+      fill_container: true
+      layout: vertical
+      entity: sensor.scale_batterie
+- type: grid
+  cards:
+  - type: custom:mushroom-title-card
+    title: Consommation
+  - type: grid
+    columns: 3
+    square: false
+    cards:
+    - type: custom:mushroom-template-card
+      primary: '{{ states(''sensor.scale_conso_jour_affichage'') }} kg'
+      secondary: '{{ states(''sensor.scale_cout_jour_affichage'') }} € · jour'
+      icon: mdi:calendar-today
+      icon_color: orange
+      fill_container: true
+      layout: vertical
+    - type: custom:mushroom-template-card
+      primary: '{{ states(''sensor.scale_conso_mois_affichage'') }} kg'
+      secondary: '{{ states(''sensor.scale_cout_mois_affichage'') }} € · mois'
+      icon: mdi:calendar-month
+      icon_color: orange
+      fill_container: true
+      layout: vertical
+    - type: custom:mushroom-template-card
+      primary: '{{ states(''sensor.scale_conso_annee_affichage'') }} kg'
+      secondary: '{{ states(''sensor.scale_cout_annee_affichage'') }} € · année'
+      icon: mdi:calendar
+      icon_color: orange
+      fill_container: true
+      layout: vertical
+  - type: custom:apexcharts-card
+    header:
+      show: true
+      title: Consommation et coût par jour
+      show_states: false
+    graph_span: 30d
+    span:
+      end: day
+    series:
+    - entity: sensor.scale_consumption_daily
+      name: Consommation (kg)
+      type: column
+      color: '#fb8c00'
+      yaxis_id: kg
+      group_by:
+        func: max
+        duration: 1d
+        fill: zero
+    - entity: sensor.scale_cost_daily
+      name: Coût (€)
+      type: column
+      color: '#43a047'
+      yaxis_id: eur
+      group_by:
+        func: max
+        duration: 1d
+        fill: zero
+    yaxis:
+    - id: kg
+      min: 0
+      decimals: 0
+    - id: eur
+      opposite: true
+      min: 0
+      decimals: 2
+    apex_config:
+      chart:
+        height: 240
+      grid:
+        borderColor: rgba(128,128,128,.2)
+      legend:
+        show: true
+      plotOptions:
+        bar:
+          columnWidth: 70%
+    cache: false
+- type: grid
+  cards:
+  - type: custom:mushroom-title-card
+    title: Stock et remplissages
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+    - type: custom:mushroom-entity-card
+      entity: input_number.scale_stock_value_eur
+      name: Valeur du stock
+      layout: vertical
+      fill_container: true
+      icon: mdi:chart-donut
+      icon_color: green
+    - type: custom:mushroom-number-card
+      entity: input_number.scale_unit_price_eur_kg
+      name: Prix au kg
+      icon: mdi:currency-eur
+      display_mode: buttons
+      fill_container: true
+      layout: vertical
+  - type: custom:mushroom-entity-card
+    entity: input_text.scale_refill_last
+    name: Dernier remplissage
+    layout: default
+    fill_container: true
+    icon: mdi:package-variant-closed
+    icon_color: blue
+  - type: markdown
+    title: Journal des remplissages
+    content: '{% set j = states(''input_text.scale_refill_journal'') %}
+
+      {% if j not in [''unknown'',''unavailable'',''none''] and j | length > 0 %}
+
+      {% for e in j.split(''\n\n'') %}
+
+      {% set l = e.split(''\n'') %}
+
+      **{{ l[0] }}**{% if l | length > 1 %}<br>{{ l[1] }}{% endif %}
+
+
+      {% endfor %}
+
+      {% else %}
+
+      _Aucun remplissage enregistré._
+
+      {% endif %}'
+- type: grid
+  cards:
+  - type: custom:mushroom-title-card
+    title: Historique
+  - type: custom:apexcharts-card
+    header:
+      show: true
+      title: Poids du silo
+      show_states: true
+      colorize_states: true
+    graph_span: 60d
+    span:
+      end: day
+    chart_type: line
+    series:
+    - entity: sensor.scale_poids
+      name: kg
+      color: '#43a047'
+      stroke_width: 3
+      curve: stepline
+      group_by:
+        func: last
+        duration: 1d
+    yaxis:
+    - min: 0
+      max: 670
+      decimals: 0
+    apex_config:
+      chart:
+        height: 260
+      grid:
+        borderColor: rgba(128,128,128,.2)
+      annotations:
+        yaxis:
+        - y: 134
+          borderColor: '#e53935'
+          strokeDashArray: 4
+          label:
+            text: Niveau bas
+            style:
+              color: '#fff'
+              background: '#e53935'
+            position: left
+            textAnchor: start
+            offsetX: 12
+            offsetY: -4
+    cache: false
+- type: grid
+  cards:
+  - type: custom:mushroom-title-card
+    title: Balance
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - type: attribute
+      entity: sensor.scale_qualite
+      attribute: valid
+      name: Capteurs OK
+      suffix: ' / 4'
+      icon: mdi:scale-balance
+    - entity: sensor.scale_qualite
+      name: Mode
+    - entity: sensor.scale_etat_remplissage
+      name: État du remplissage
+    - entity: sensor.scale_version
+      name: Firmware
+    - entity: input_number.scale_alert_days
+      name: Alerte (jours restants)
+    - entity: input_datetime.scale_tracking_start
+      name: Début du suivi

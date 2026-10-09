@@ -1,0 +1,17 @@
+# =============================================================================
+# ESP Scale — Home Assistant : consommation sur 14 jours glissants
+# =============================================================================
+# Kilos consommés sur les 14 derniers jours (cumul `scale_conso_cumulee`, qui ne
+# fait que monter). Sert à la moyenne glissante et aux « jours restants »
+# (templates.yaml). Se remplit depuis le démarrage de HA : redémarrer HA ou
+# recharger les entités statistics après le déploiement.
+sensor:
+  - platform: statistics
+    name: "Scale Conso 14 jours"
+    unique_id: scale_consumption_14d
+    entity_id: sensor.scale_conso_cumulee
+    state_characteristic: change
+    max_age:
+      days: 14
+    sampling_size: 2000
+    precision: 2

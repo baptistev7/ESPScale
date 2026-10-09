@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Balance Silo - Portail local de configuration</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#000000","secondary-container":"#e2e2e2","secondary-fixed":"#e2e2e2","on-tertiary":"#ffffff","surface-container-highest":"#e2e3df","on-primary":"#ffffff","primary-fixed":"#e2e2e2","primary":"#000000","surface-container-low":"#f4f4f0","on-primary-container":"#848484","surface-bright":"#faf9f5","secondary-fixed-dim":"#c6c6c6","on-surface":"#1a1c1a","on-background":"#1a1c1a","tertiary-fixed":"#e2e2e2","inverse-primary":"#c6c6c6","on-primary-fixed":"#1b1b1b","inverse-on-surface":"#f1f1ed","on-primary-fixed-variant":"#474747","error-container":"#ffdad6","background":"#faf9f5","on-error-container":"#93000a","error":"#ba1a1a","primary-container":"#1b1b1b","on-secondary":"#ffffff","on-surface-variant":"#4c4546","surface":"#faf9f5","surface-dim":"#dadad6","tertiary-container":"#1b1b1b","surface-tint":"#5e5e5e","tertiary-fixed-dim":"#c6c6c6","on-tertiary-fixed-variant":"#474747","secondary":"#5e5e5e","on-tertiary-fixed":"#1b1b1b","surface-container":"#eeeeea","on-secondary-fixed-variant":"#474747","on-error":"#ffffff","primary-fixed-dim":"#c6c6c6","surface-container-high":"#e8e8e4","surface-container-lowest":"#ffffff","on-tertiary-container":"#848484","surface-variant":"#e2e3df","inverse-surface":"#2f312e","on-secondary-fixed":"#1b1b1b","outline-variant":"#cfc4c5","on-secondary-container":"#646464","outline":"#7e7576"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"8px","space-xs":"2px","space-sm":"4px","space-xl":"12px","gutter":"4px","space-md":"6px","margin":"2px"},"fontFamily":{"label-lg":["JetBrains Mono"],"headline-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-md":["JetBrains Mono"],"body-sm":["JetBrains Mono"],"body-md":["JetBrains Mono"],"body-lg":["JetBrains Mono"],"headline-sm":["JetBrains Mono"],"label-sm":["JetBrains Mono"]},"fontSize":{"label-lg":["9px",{"lineHeight":"10px","letterSpacing":"0.75px","fontWeight":"700"}],"headline-lg":["28px",{"lineHeight":"28px","letterSpacing":"-0.5px","fontWeight":"800"}],"label-md":["8px",{"lineHeight":"9px","letterSpacing":"0.5px","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"20px","letterSpacing":"0px","fontWeight":"700"}],"body-sm":["9px",{"lineHeight":"11px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["10px",{"lineHeight":"12px","letterSpacing":"0px","fontWeight":"500"}],"body-lg":["11px",{"lineHeight":"13px","letterSpacing":"0px","fontWeight":"600"}],"headline-sm":["13px",{"lineHeight":"14px","letterSpacing":"0.5px","fontWeight":"700"}],"label-sm":["7px",{"lineHeight":"8px","letterSpacing":"0.5px","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-20 w-full max-w-7xl mx-auto px-space-xl flex flex-col justify-between pt-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="w-7 h-7 bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold tracking-tight">S</div><div><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm tracking-tight text-primary uppercase">Balance Silo</span><span class="bg-surface-container font-label-sm text-label-sm px-space-xs py-[1px] border border-outline-variant text-on-surface uppercase">AP-MODE</span></div><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Portail local de configuration</span></div></div><div class="hidden md:flex items-center gap-space-lg font-label-md text-label-md border border-outline-variant bg-surface-container-low px-space-md py-space-xs"><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">IP:</span><span class="text-primary font-bold">192.168.4.1</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">AP:</span><span class="text-primary font-bold">SILO-SETUP</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">UPTIME:</span><span class="text-primary font-bold">01j 04h 12m</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">FW:</span><span class="text-primary font-bold">v1.4.2</span></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav class="flex items-center gap-space-xs overflow-x-auto -mb-[1px]" data-active-classes="border-b-2 border-primary text-primary font-bold bg-surface-container-low"><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="etat" href="#">État</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-wifi" href="#">Réseau Wi-Fi</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-mqtt" href="#">Réseau MQTT</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="parametres-silo" href="#">Paramètres Silo</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-mesure-globale" href="#">Capteurs HX711</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-calibration" href="#">Calibration Masse</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-repartition-4-pieds" href="#">Répartition 4 Pieds</a></nav></div></header><main class="w-full max-w-7xl mx-auto px-space-xl pt-20 flex-1 bg-surface"><div class="flex flex-col w-full">
+<!-- Sub-header / Path banner -->
+<div class="w-full bg-surface-container-high px-space-md py-space-sm mb-space-lg flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 bg-primary inline-block"></span>
+<span class="font-headline-sm text-headline-sm uppercase text-primary tracking-wider">07 // RÉPARTITION DES 4 PIEDS (DIAGNOSTIC QUAD-HX711)</span>
+</div>
+<div class="flex items-center gap-space-md font-label-md text-label-md">
+<span class="bg-surface-container px-space-sm py-[1px] text-on-surface uppercase">MODE: VECTEUR STATIQUE</span>
+<span class="bg-primary text-on-primary px-space-sm py-[1px] uppercase">RÉSOLUTION: 24-BIT</span>
+<span class="text-on-surface-variant font-bold">FRÉQ: 10 HZ</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Column: Spatial Diagram & Hero Metrics -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Top Section: Technical Silo Diagram (Top-Down View) -->
+<section class="bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between bg-surface-container-high px-space-md py-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">grid_view</span>
+<h2 class="font-label-lg text-label-lg uppercase tracking-wider text-primary">SCHÉMA TECHNIQUE DE RÉPARTITION DES CHARGES (VUE DU DESSUS)</h2>
+</div>
+<span class="font-label-sm text-label-sm uppercase bg-surface-container-low px-space-sm text-on-surface-variant">PLAN HORIZONTAL Z=0</span>
+</div>
+<!-- Center Stage: The 4-Corner Mechanical Footprint -->
+<div class="bg-surface-container-low p-space-md relative overflow-hidden">
+<!-- Orientation markers -->
+<div class="flex justify-between items-center px-space-lg py-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span>[NORD / FACE AVANT]</span>
+<span>AXE TRANVERSAL (X)</span>
+<span>[SORTIE TRÉMIE / SUD]</span>
+</div>
+<!-- Silo Footprint Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md my-space-sm">
+<!-- P1: Nord-Ouest (Avant Gauche) -->
+<div class="bg-surface-container-lowest p-space-md flex flex-col justify-between shadow-sm relative group hover:bg-surface-container-highest transition-none" id="card-p1">
+<div class="flex justify-between items-start">
+<div>
+<span class="bg-primary text-on-primary font-label-md text-label-md px-space-xs py-[1px] uppercase">P1 • NW</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-[2px] uppercase">Avant Gauche (AG)</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">25.0 %</span>
+<div class="font-label-sm text-label-sm text-on-surface uppercase">Dérive: 0.0%</div>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">81.9</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant">kg</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 overflow-hidden mb-space-xs">
+<div class="bg-primary h-full" style="width: 25.0%;"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>ADC: 1,120,400 pts</span>
+<span class="text-primary font-bold">GAIN: 128</span>
+</div>
+</div>
+<!-- P2: Nord-Est (Avant Droit) -->
+<div class="bg-surface-container-lowest p-space-md flex flex-col justify-between shadow-sm relative group hover:bg-surface-container-highest transition-none" id="card-p2">
+<div class="flex justify-between items-start">
+<div>
+<span class="bg-primary text-on-primary font-label-md text-label-md px-space-xs py-[1px] uppercase">P2 • NE</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-[2px] uppercase">Avant Droit (AD)</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">25.5 %</span>
+<div class="font-label-sm text-label-sm text-on-surface uppercase">Dérive: +0.2%</div>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">83.5</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant">kg</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 overflow-hidden mb-space-xs">
+<div class="bg-primary h-full" style="width: 25.5%;"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>ADC: 1,142,100 pts</span>
+<span class="text-primary font-bold">GAIN: 128</span>
+</div>
+</div>
+<!-- Center Silo Hopper Core Vector Representation -->
+<div class="md:col-span-2 bg-surface-container-high p-space-sm flex flex-col md:flex-row items-center justify-between gap-space-sm text-center">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">adjust</span>
+<span class="font-label-md text-label-md uppercase font-bold text-primary">BARYCENTRE CALCULÉ: X: +0.2 cm | Y: +0.1 cm</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">RÉPARTITION IDÉALE VISÉE : 25% ± 3.5% PAR PIED</div>
+</div>
+<!-- P3: Sud-Ouest (Arrière Gauche) -->
+<div class="bg-surface-container-lowest p-space-md flex flex-col justify-between shadow-sm relative group hover:bg-surface-container-highest transition-none" id="card-p3">
+<div class="flex justify-between items-start">
+<div>
+<span class="bg-primary text-on-primary font-label-md text-label-md px-space-xs py-[1px] uppercase">P3 • SW</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-[2px] uppercase">Arrière Gauche (ARG)</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">24.4 %</span>
+<div class="font-label-sm text-label-sm text-on-surface uppercase">Dérive: -0.4%</div>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">79.8</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant">kg</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 overflow-hidden mb-space-xs">
+<div class="bg-primary h-full" style="width: 24.4%;"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>ADC: 1,091,800 pts</span>
+<span class="text-primary font-bold">GAIN: 128</span>
+</div>
+</div>
+<!-- P4: Sud-Est (Arrière Droit) -->
+<div class="bg-surface-container-lowest p-space-md flex flex-col justify-between shadow-sm relative group hover:bg-surface-container-highest transition-none" id="card-p4">
+<div class="flex justify-between items-start">
+<div>
+<span class="bg-primary text-on-primary font-label-md text-label-md px-space-xs py-[1px] uppercase">P4 • SE</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-[2px] uppercase">Arrière Droit (ARD)</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">25.1 %</span>
+<div class="font-label-sm text-label-sm text-on-surface uppercase">Dérive: +0.1%</div>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">82.2</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant">kg</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 overflow-hidden mb-space-xs">
+<div class="bg-primary h-full" style="width: 25.1%;"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>ADC: 1,124,500 pts</span>
+<span class="text-primary font-bold">GAIN: 128</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footprint Aggregate Total -->
+<div class="bg-primary text-on-primary p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-[24px]">balance</span>
+<div>
+<div class="font-label-md text-label-md uppercase tracking-wider text-secondary-fixed">SOMME TOTALE VÉRIFIÉE (P1+P2+P3+P4)</div>
+<div class="font-headline-lg text-headline-lg font-bold">327.4 <span class="font-headline-sm text-headline-sm text-secondary-fixed">kg</span></div>
+</div>
+</div>
+<div class="bg-primary-container px-space-md py-space-sm text-right">
+<div class="font-label-sm text-label-sm uppercase text-secondary-fixed-dim">DIAGNOSTIC GÉOMÉTRIQUE</div>
+<div class="font-label-lg text-label-lg font-bold uppercase text-on-primary">ÉQUILIBRE PARFAIT : INDICE D'ASYMÉTRIE &lt; 2.1 %</div>
+</div>
+</div>
+</section>
+<!-- Section: Detailed Gauges Health Matrix -->
+<section class="bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between bg-surface-container-high px-space-md py-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">query_stats</span>
+<h2 class="font-label-lg text-label-lg uppercase tracking-wider text-primary">DIAGNOSTIC &amp; ÉTAT DE SANTÉ DES JAUGES DE CONTRAINTE</h2>
+</div>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">4 CANAUX DIFFÉRENTIELS HX711</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-md text-body-md border-collapse">
+<thead>
+<tr class="bg-surface-container font-label-md text-label-md text-on-surface-variant uppercase">
+<th class="p-space-sm">CANAL / CAPTEUR</th>
+<th class="p-space-sm">RÉSISTANCE PONT</th>
+<th class="p-space-sm">CÂBLAGE</th>
+<th class="p-space-sm">TENSION EXCITATION</th>
+<th class="p-space-sm">BRUIT BLANC</th>
+<th class="p-space-sm text-right">GAIN AMPLI</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="bg-surface-container-low hover:bg-surface-container transition-none">
+<td class="p-space-sm font-bold text-primary flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-primary inline-block"></span>
+                  P1 (NW) - AVANT GAUCHE
+                </td>
+<td class="p-space-sm font-mono text-on-surface">350.2 Ω</td>
+<td class="p-space-sm">
+<span class="bg-surface-container-highest text-primary font-label-sm text-label-sm px-space-xs py-[1px] uppercase font-bold">OK (4 FILS BLINDÉS)</span>
+</td>
+<td class="p-space-sm font-mono text-on-surface-variant">4.28 V</td>
+<td class="p-space-sm font-mono text-on-surface-variant">±12 pts</td>
+<td class="p-space-sm text-right font-bold text-primary">128</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container transition-none">
+<td class="p-space-sm font-bold text-primary flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-primary inline-block"></span>
+                  P2 (NE) - AVANT DROIT
+                </td>
+<td class="p-space-sm font-mono text-on-surface">350.5 Ω</td>
+<td class="p-space-sm">
+<span class="bg-surface-container-highest text-primary font-label-sm text-label-sm px-space-xs py-[1px] uppercase font-bold">OK (4 FILS BLINDÉS)</span>
+</td>
+<td class="p-space-sm font-mono text-on-surface-variant">4.28 V</td>
+<td class="p-space-sm font-mono text-on-surface-variant">±14 pts</td>
+<td class="p-space-sm text-right font-bold text-primary">128</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-none">
+<td class="p-space-sm font-bold text-primary flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-primary inline-block"></span>
+                  P3 (SW) - ARRIÈRE GAUCHE
+                </td>
+<td class="p-space-sm font-mono text-on-surface">349.9 Ω</td>
+<td class="p-space-sm">
+<span class="bg-surface-container-highest text-primary font-label-sm text-label-sm px-space-xs py-[1px] uppercase font-bold">OK (4 FILS BLINDÉS)</span>
+</td>
+<td class="p-space-sm font-mono text-on-surface-variant">4.27 V</td>
+<td class="p-space-sm font-mono text-on-surface-variant">±09 pts</td>
+<td class="p-space-sm text-right font-bold text-primary">128</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container transition-none">
+<td class="p-space-sm font-bold text-primary flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-primary inline-block"></span>
+                  P4 (SE) - ARRIÈRE DROIT
+                </td>
+<td class="p-space-sm font-mono text-on-surface">350.1 Ω</td>
+<td class="p-space-sm">
+<span class="bg-surface-container-highest text-primary font-label-sm text-label-sm px-space-xs py-[1px] uppercase font-bold">OK (4 FILS BLINDÉS)</span>
+</td>
+<td class="p-space-sm font-mono text-on-surface-variant">4.28 V</td>
+<td class="p-space-sm font-mono text-on-surface-variant">±11 pts</td>
+<td class="p-space-sm text-right font-bold text-primary">128</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Right Column: Safety Alerts, Structural Physics, & Direct Actions -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Section: Asymmetry Alert & Arching Detection -->
+<section class="bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between bg-surface-container-high px-space-md py-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">warning</span>
+<h2 class="font-label-lg text-label-lg uppercase tracking-wider text-primary">ALERTE DE DÉSÉQUILIBRE OU BLOCAGE</h2>
+</div>
+</div>
+<!-- Threshold Container -->
+<div class="bg-surface-container-low p-space-md flex flex-col gap-space-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md uppercase text-on-surface-variant">SEUIL D'ASYMÉTRIE ADMISSIBLE</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">AJUSTABLE</span>
+</div>
+<div class="bg-surface-container-lowest px-space-md py-space-sm flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">15.0 %</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">MAX DIFFÉRENTIEL INTER-PIEDS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Un différentiel supérieur à 15% déclenche une mise en sécurité du convoyeur de vis sans fin pour prévenir le basculement structural.
+          </p>
+</div>
+<!-- Current Status Badge -->
+<div class="bg-primary text-on-primary p-space-md flex items-center gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-on-primary">verified</span>
+<div>
+<div class="font-label-sm text-label-sm uppercase text-secondary-fixed">STATUT D'ALIGNEMENT</div>
+<div class="font-label-lg text-label-lg font-bold tracking-wider uppercase">STRUCTURE PARFAITEMENT ÉQUILIBRÉE</div>
+</div>
+</div>
+<!-- Pellets Arching / Chimney Effect Detection -->
+<div class="bg-surface-container p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold uppercase text-primary">DÉTECTION DE VOÛTAGE / CHEMINÉE</span>
+<span class="material-symbols-outlined text-[16px] text-primary">grain</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm font-body-sm text-body-sm text-on-surface">
+<div class="flex items-center gap-space-xs text-primary font-bold mb-space-xs">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span>RÉGIME D'ÉCOULEMENT NORMAL</span>
+</div>
+            Aucune formation de voûte de pellets détectée au-dessus de la cône de reprise. Écoulement gravitaire uniforme constaté sur les 4 quadrants.
+          </div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant px-space-xs">
+<span>INDICE DE COHÉSION: 0.12 (OK)</span>
+<span>GRADIENT DY/DT: STABLE</span>
+</div>
+</div>
+</section>
+<!-- Section: Adjustment Actions & Calibration -->
+<section class="bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between bg-surface-container-high px-space-md py-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">tune</span>
+<h2 class="font-label-lg text-label-lg uppercase tracking-wider text-primary">ACTIONS DE RÉGLAGE &amp; COMPENSATION</h2>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Les commandes ci-dessous appliquent des décalages d'offset en EEPROM pour compenser la contrainte mécanique statique de la charpente.
+        </p>
+<div class="flex flex-col gap-space-sm mt-space-xs">
+<!-- Button 1: Solid Black Rectangular -->
+<button class="w-full bg-primary text-on-primary hover:bg-surface-container-highest hover:text-primary transition-none py-space-md px-space-lg flex items-center justify-center gap-space-sm font-label-lg text-label-lg uppercase tracking-wider font-bold" id="btn-tare-all">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span>COMPENSER LE ZÉRO INDIVIDUEL DE CHAQUE PIED</span>
+</button>
+<!-- Button 2: Contrasted Surface Container / Outline style -->
+<button class="w-full bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary transition-none py-space-md px-space-lg flex items-center justify-center gap-space-sm font-label-lg text-label-lg uppercase tracking-wider font-bold" id="btn-export-csv">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>EXPORTER LE JOURNAL DE CHARGE BRUTE (CSV)</span>
+</button>
+<!-- Individual Foot Zero Dropdown/Action Drawer -->
+<div class="bg-surface-container-low p-space-sm mt-space-xs">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-space-xs">ACTION CIBLÉE PAR CANAL UNIQUE :</span>
+<div class="grid grid-cols-4 gap-space-xs">
+<button class="channel-zero-btn bg-surface-container text-primary hover:bg-primary hover:text-on-primary py-space-xs font-label-md text-label-md font-bold uppercase transition-none" data-channel="P1">TÂRE P1</button>
+<button class="channel-zero-btn bg-surface-container text-primary hover:bg-primary hover:text-on-primary py-space-xs font-label-md text-label-md font-bold uppercase transition-none" data-channel="P2">TÂRE P2</button>
+<button class="channel-zero-btn bg-surface-container text-primary hover:bg-primary hover:text-on-primary py-space-xs font-label-md text-label-md font-bold uppercase transition-none" data-channel="P3">TÂRE P3</button>
+<button class="channel-zero-btn bg-surface-container text-primary hover:bg-primary hover:text-on-primary py-space-xs font-label-md text-label-md font-bold uppercase transition-none" data-channel="P4">TÂRE P4</button>
+</div>
+</div>
+</div>
+<!-- Telemetry notice -->
+<div class="bg-surface-container-low p-space-sm flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span>Dernière réinitialisation du zéro statique : 28/09/2024 à 14:02 UTC</span>
+</div>
+</section>
+<!-- Technical Log / Console stream -->
+<section class="bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-xs">
+<div class="flex justify-between items-center font-label-md text-label-md text-on-surface-variant uppercase">
+<span>REGISTRE ÉVÉNEMENTS MATÉRIELS</span>
+<span class="text-primary font-bold">SYS_OK</span>
+</div>
+<div class="bg-surface-container-high p-space-sm font-mono text-[9px] leading-tight text-on-surface flex flex-col gap-[2px]">
+<div>[20:46:01] QUAD-HX711: Cycle DMA achevé. Trame 4 canaux alignée.</div>
+<div>[20:46:02] DSP_FILTER: FIR moving-average (fenêtre 16 échantillons).</div>
+<div>[20:46:02] ASYM_CALC: Écart-type quadratique = 1.34 kg (&lt; tolérance).</div>
+<div>[20:46:03] MQTT_PUB: Télémétrie brute transmise /silo/quad_weights.</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Notification Banner (Dynamic JS Trigger) -->
+<div class="hidden fixed bottom-6 right-6 bg-primary text-on-primary px-space-lg py-space-md shadow-xl z-50 flex items-center gap-space-sm font-label-lg text-label-lg uppercase" id="action-toast">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span id="toast-message">COMMANDE EXÉCUTÉE</span>
+</div>
+<script>
+    // Industrial telemetry button interactions
+    const toast = document.getElementById('action-toast');
+    const toastMessage = document.getElementById('toast-message');
+
+    function showNotification(msg) {
+      if (!toast) return;
+      toastMessage.textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3000);
+    }
+
+    document.getElementById('btn-tare-all')?.addEventListener('click', () => {
+      showNotification('CALIBRATION OFFSET ZERO APPLIQUÉE SUR P1, P2, P3, P4');
+    });
+
+    document.getElementById('btn-export-csv')?.addEventListener('click', () => {
+      showNotification('GÉNÉRATION DU JOURNAL CSV EN COURS (quad_load_cells_raw.csv)');
+    });
+
+    document.querySelectorAll('.channel-zero-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const channel = e.target.getAttribute('data-channel');
+        showNotification(`ZÉRO STATIQUE RÉAJUSTÉ SUR CANAL ${channel}`);
+      });
+    });
+  </script>
+</div></main><footer class="w-full border-t border-outline-variant bg-surface-container-lowest mt-space-xl py-space-md"><div class="max-w-7xl mx-auto px-space-xl flex flex-col md:flex-row items-center justify-between gap-space-xs font-label-md text-label-md text-on-surface-variant"><div class="flex items-center gap-space-xs"><span>Balance Silo DIY ESP32</span><span>•</span><span>ESP-IDF / GxEPD2</span><span>•</span><span>FLASH: 64% LIBRE</span></div><div class="flex items-center gap-space-xs"><span>HEURE SYSTÈME: 20:46 02/10/24</span><span>•</span><span class="inline-block w-2 h-2 bg-primary"></span><span>SYNC OK</span></div></div></footer></body></html>
