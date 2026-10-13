@@ -1,0 +1,10 @@
+# =============================================================================
+# ESP Scale — Home Assistant : bouton « Appliquer » du prix du dernier remplissage
+# =============================================================================
+# On saisit le prix dans input_number.scale_last_refill_price_edit puis on
+# appuie ici : l'automatisation « Scale - Prix du dernier remplissage corrigé »
+# recalcule le prix du stock.
+input_button:
+  scale_last_refill_apply:
+    name: "Appliquer le prix du dernier remplissage"
+    icon: mdi:check

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Balance Silo - Portail local de configuration</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#000000","secondary-container":"#e2e2e2","secondary-fixed":"#e2e2e2","on-tertiary":"#ffffff","surface-container-highest":"#e2e3df","on-primary":"#ffffff","primary-fixed":"#e2e2e2","primary":"#000000","surface-container-low":"#f4f4f0","on-primary-container":"#848484","surface-bright":"#faf9f5","secondary-fixed-dim":"#c6c6c6","on-surface":"#1a1c1a","on-background":"#1a1c1a","tertiary-fixed":"#e2e2e2","inverse-primary":"#c6c6c6","on-primary-fixed":"#1b1b1b","inverse-on-surface":"#f1f1ed","on-primary-fixed-variant":"#474747","error-container":"#ffdad6","background":"#faf9f5","on-error-container":"#93000a","error":"#ba1a1a","primary-container":"#1b1b1b","on-secondary":"#ffffff","on-surface-variant":"#4c4546","surface":"#faf9f5","surface-dim":"#dadad6","tertiary-container":"#1b1b1b","surface-tint":"#5e5e5e","tertiary-fixed-dim":"#c6c6c6","on-tertiary-fixed-variant":"#474747","secondary":"#5e5e5e","on-tertiary-fixed":"#1b1b1b","surface-container":"#eeeeea","on-secondary-fixed-variant":"#474747","on-error":"#ffffff","primary-fixed-dim":"#c6c6c6","surface-container-high":"#e8e8e4","surface-container-lowest":"#ffffff","on-tertiary-container":"#848484","surface-variant":"#e2e3df","inverse-surface":"#2f312e","on-secondary-fixed":"#1b1b1b","outline-variant":"#cfc4c5","on-secondary-container":"#646464","outline":"#7e7576"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"8px","space-xs":"2px","space-sm":"4px","space-xl":"12px","gutter":"4px","space-md":"6px","margin":"2px"},"fontFamily":{"label-lg":["JetBrains Mono"],"headline-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-md":["JetBrains Mono"],"body-sm":["JetBrains Mono"],"body-md":["JetBrains Mono"],"body-lg":["JetBrains Mono"],"headline-sm":["JetBrains Mono"],"label-sm":["JetBrains Mono"]},"fontSize":{"label-lg":["9px",{"lineHeight":"10px","letterSpacing":"0.75px","fontWeight":"700"}],"headline-lg":["28px",{"lineHeight":"28px","letterSpacing":"-0.5px","fontWeight":"800"}],"label-md":["8px",{"lineHeight":"9px","letterSpacing":"0.5px","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"20px","letterSpacing":"0px","fontWeight":"700"}],"body-sm":["9px",{"lineHeight":"11px","letterSpacing":"0px","fontWeight":"500"}],"body-md":["10px",{"lineHeight":"12px","letterSpacing":"0px","fontWeight":"500"}],"body-lg":["11px",{"lineHeight":"13px","letterSpacing":"0px","fontWeight":"600"}],"headline-sm":["13px",{"lineHeight":"14px","letterSpacing":"0.5px","fontWeight":"700"}],"label-sm":["7px",{"lineHeight":"8px","letterSpacing":"0.5px","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-20 w-full max-w-7xl mx-auto px-space-xl flex flex-col justify-between pt-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="w-7 h-7 bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold tracking-tight">S</div><div><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm tracking-tight text-primary uppercase">Balance Silo</span><span class="bg-surface-container font-label-sm text-label-sm px-space-xs py-[1px] border border-outline-variant text-on-surface uppercase">AP-MODE</span></div><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Portail local de configuration</span></div></div><div class="hidden md:flex items-center gap-space-lg font-label-md text-label-md border border-outline-variant bg-surface-container-low px-space-md py-space-xs"><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">IP:</span><span class="text-primary font-bold">192.168.4.1</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">AP:</span><span class="text-primary font-bold">SILO-SETUP</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">UPTIME:</span><span class="text-primary font-bold">01j 04h 12m</span></div><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs"><span class="text-on-surface-variant uppercase">FW:</span><span class="text-primary font-bold">v1.4.2</span></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav class="flex items-center gap-space-xs overflow-x-auto -mb-[1px]" data-active-classes="border-b-2 border-primary text-primary font-bold bg-surface-container-low"><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="etat" href="#">État</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-wifi" href="#">Réseau Wi-Fi</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="reseau-mqtt" href="#">Réseau MQTT</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="parametres-silo" href="#">Paramètres Silo</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-mesure-globale" href="#">Capteurs HX711</a><a aria-current="page" class="px-space-md py-space-xs uppercase tracking-wider transition-none border-b-2 border-primary text-primary font-bold bg-surface-container-low" data-path="capteurs-calibration" href="#">Calibration Masse</a><a class="px-space-md py-space-xs font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-b-2 border-transparent transition-none" data-path="capteurs-repartition-4-pieds" href="#">Répartition 4 Pieds</a></nav></div></header><main class="w-full max-w-7xl mx-auto px-space-xl pt-20 flex-1 bg-surface"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Metrological Bar / Context Notice -->
+<div class="w-full bg-surface-container-highest px-space-lg py-space-sm flex flex-col md:flex-row md:items-center justify-between gap-space-xs font-label-md text-label-md text-on-surface">
+<div class="flex items-center gap-space-sm">
+<span class="bg-primary text-on-primary px-space-xs py-[1px] uppercase font-bold">PROC-METR-04</span>
+<span class="uppercase tracking-wider font-semibold">Protocole d'étalonnage statique par charge étalon</span>
+<span class="text-on-surface-variant">• Norme EN 45501 / OIML R76</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 bg-primary inline-block"></span>
+<span class="uppercase">Convertisseur HX711 #01: 10 SPS / Gain 128</span>
+</div>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-space-xs">
+<span class="text-on-surface-variant uppercase">Tolérance:</span>
+<span class="font-bold">±0.05% FS</span>
+</div>
+</div>
+</div>
+<!-- Main Wizard Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md mt-space-md">
+<!-- Left Column: Step-by-Step Calibration Wizard (8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Section Header Container -->
+<div class="bg-primary text-on-primary p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px]">straighten</span>
+<span class="font-headline-sm text-headline-sm uppercase tracking-wide">Assistant d'étalonnage en 3 étapes</span>
+</div>
+<span class="bg-surface text-primary font-label-sm text-label-sm px-space-xs py-[2px] font-bold uppercase">Mode interactif actif</span>
+</div>
+<!-- ÉTAPE 1: Tare mécanique (Terminée) -->
+<div class="bg-surface-container-lowest p-space-lg flex flex-col gap-space-sm shadow-sm relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 bg-surface-container-highest text-on-surface flex items-center justify-center font-headline-sm text-headline-sm font-bold">01</span>
+<div>
+<span class="font-headline-sm text-headline-sm uppercase block tracking-tight text-on-surface">Tare du zéro mécanique (Zéro initial)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Statut matériel: Verrouillé &amp; Enregistré</span>
+</div>
+</div>
+<span class="bg-surface-container-highest text-on-surface px-space-sm py-space-xs font-label-md text-label-md uppercase font-bold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">check</span>
+            Terminée
+          </span>
+</div>
+<div class="bg-surface-container-low p-space-md mt-space-xs">
+<p class="font-body-md text-body-md text-on-surface-variant">
+<strong class="text-on-surface uppercase font-label-md">Instruction métrologique :</strong> Silo complètement vide, aucun contact externe ni outil posé sur la trémie. Découplage complet des conduits rigides validé.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mt-space-xs pt-space-xs">
+<div class="flex items-baseline gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Valeur brute du zéro enregistrée:</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">1 200 450 pts</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(0.000 kg brut)</span>
+</div>
+<button class="bg-surface-container text-on-surface hover:bg-surface-container-high px-space-md py-space-xs font-label-lg text-label-lg uppercase transition-none cursor-pointer flex items-center justify-center gap-space-xs self-start sm:self-auto" type="button">
+<span class="material-symbols-outlined text-[14px]">replay</span>
+            Recalibrer le zéro
+          </button>
+</div>
+</div>
+<!-- ÉTAPE 2: Masse étalon (ACTIVE) -->
+<div class="bg-surface-container-lowest p-space-lg flex flex-col gap-space-md shadow-md relative">
+<div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+<div class="flex items-center justify-between pl-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold">02</span>
+<div>
+<span class="font-headline-sm text-headline-sm uppercase block tracking-tight text-primary">Application de la masse étalon de référence</span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">Cycle d'acquisition en cours</span>
+</div>
+</div>
+<span class="bg-primary text-on-primary px-space-sm py-space-xs font-label-md text-label-md uppercase font-bold flex items-center gap-space-xs animate-pulse">
+<span class="w-2 h-2 bg-on-primary inline-block"></span>
+            En cours - Active
+          </span>
+</div>
+<div class="bg-surface-container-low p-space-md pl-space-md">
+<p class="font-body-md text-body-md text-on-surface">
+<strong class="uppercase font-label-md">Consigne opérateur :</strong> Déposer une masse étalon connue et certifiée au centre du silo ou répartie équitablement (ex: sacs de granulés étalonnés ou personne de masse connue validée sur pèse-personne de classe III).
+          </p>
+</div>
+<!-- Metric Readout Chamber & Input Field -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<!-- Reference Mass Input Container -->
+<div class="bg-surface-container p-space-md flex flex-col justify-between">
+<div>
+<label class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface block" for="reference-mass-input">
+                Masse étalon appliquée (kg) :
+              </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-[2px]">
+                Résolution requise: 0.1 kg minimum
+              </span>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs bg-surface-container-lowest p-space-xs">
+<input class="w-full bg-transparent font-headline-lg text-headline-lg font-bold text-primary focus:outline-none px-space-xs" id="reference-mass-input" placeholder="00.0" type="text" value="50.0"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface-variant pr-space-xs">KG</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-space-xs">Poids certifié d'étalonnage métrologique</span>
+</div>
+<!-- Realtime Sensor Output Display -->
+<div class="bg-surface-container-low p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg uppercase text-on-surface-variant">Lecture convertisseur</span>
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-space-xs py-[1px] uppercase">Brut 24-Bit</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg font-bold text-primary" id="live-points">1 701 230</span>
+<span class="font-label-md text-label-md text-on-surface uppercase font-bold">pts</span>
+</div>
+<div class="font-label-md text-label-md text-primary font-bold flex items-center gap-space-xs mt-[2px]">
+<span>Delta brut :</span>
+<span class="bg-surface-container px-space-xs">+500 780 pts</span>
+</div>
+</div>
+<!-- Stability Indicator Badge -->
+<div class="bg-surface-container-highest px-space-sm py-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 bg-primary inline-block"></span>
+<span class="font-label-sm text-label-sm uppercase font-bold text-primary">Mesure stable (±0.05 kg depuis 8s)</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[14px]">verified</span>
+</div>
+</div>
+</div>
+<!-- 1-Bit Metrological Sparkline / Raster stability chart -->
+<div class="bg-surface-container-low p-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant uppercase">
+<span>Stabilité échantillonnage (10 Hz, 32 cycles récents)</span>
+<span>Bruit max: &lt; 14 pts (0.001 kg)</span>
+</div>
+<svg class="w-full h-8 text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 320 32">
+<path d="M0,16 L10,16 L20,15 L30,17 L40,16 L50,16 L60,15 L70,16 L80,16 L90,16 L100,17 L110,16 L120,16 L130,16 L140,15 L150,16 L160,16 L170,16 L180,17 L190,16 L200,16 L210,15 L220,16 L230,16 L240,16 L250,16 L260,16 L270,17 L280,16 L290,16 L300,16 L310,16 L320,16" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<line opacity="0.3" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="0" x2="320" y1="8" y2="8"></line>
+<line opacity="0.3" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="0" x2="320" y1="24" y2="24"></line>
+</svg>
+</div>
+<!-- Validation Trigger Button -->
+<button class="w-full bg-primary text-on-primary hover:bg-surface-tint p-space-md font-label-lg text-label-lg uppercase tracking-wider font-bold flex items-center justify-center gap-space-sm transition-none cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[16px]">calculate</span>
+          Valider la masse étalon et calculer le facteur d'échelle
+        </button>
+</div>
+<!-- ÉTAPE 3: Enregistrement NVS (À venir) -->
+<div class="bg-surface-container-lowest p-space-lg flex flex-col gap-space-md opacity-85 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 bg-surface-container text-on-surface-variant flex items-center justify-center font-headline-sm text-headline-sm font-bold">03</span>
+<div>
+<span class="font-headline-sm text-headline-sm uppercase block tracking-tight text-on-surface">Vérification et enregistrement en mémoire EEPROM/NVS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Attente de validation étape 2</span>
+</div>
+</div>
+<span class="bg-surface-container text-on-surface-variant px-space-sm py-space-xs font-label-md text-label-md uppercase font-bold">
+            À venir
+          </span>
+</div>
+<!-- Computed Parameters Grid Preview -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">Facteur calculé :</span>
+<span class="font-headline-md text-headline-md font-bold text-primary block mt-space-xs">10 015.6</span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase">points / kg</span>
+</div>
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">Coefficient actuel :</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface block mt-space-xs">9 984.2</span>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase">Écart: +0.31 %</span>
+</div>
+<div class="bg-surface-container-low p-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">Linéarité (R²) :</span>
+<span class="font-headline-md text-headline-md font-bold text-primary block mt-space-xs">0.9998</span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase">Certifié conforme</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: TTGO T5 Display Simulator & Metrological Records (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- TTGO T5 Physical Enclosure Box (122x250 e-Paper Frame) -->
+<div class="bg-surface-container p-space-md flex flex-col items-center shadow-md">
+<div class="w-full flex items-center justify-between pb-space-xs font-label-sm text-label-sm uppercase text-on-surface-variant">
+<span>Afficheur e-Paper 2.13"</span>
+<span>122 × 250 px (1-Bit)</span>
+</div>
+<!-- Enclosure Casing Pale Gray/Beige (#e2e3de) -->
+<div class="w-[146px] bg-[#e2e3de] pt-3 pb-6 px-3 flex flex-col items-center shadow-inner rounded-sm my-space-xs">
+<!-- Exact 122x250 Viewport -->
+<div class="w-[122px] h-[250px] bg-surface-container-low text-primary overflow-hidden flex flex-col relative select-none">
+<!-- Zone 1: Header (16px) -->
+<div class="w-full h-4 bg-primary text-on-primary flex items-center justify-between px-1 shrink-0">
+<span class="font-label-sm text-[7px] leading-tight font-bold tracking-tight">CALIB.02</span>
+<span class="font-label-sm text-[7px] leading-tight uppercase font-bold">ETALON</span>
+<div class="flex items-center gap-[1px]">
+<span class="font-label-sm text-[7px] leading-tight font-bold">98%</span>
+<span class="w-2 h-[6px] border border-on-primary inline-block relative p-[1px]">
+<span class="w-[3px] h-[2px] bg-on-primary block"></span>
+</span>
+</div>
+</div>
+<!-- Zone 2: Subheader (12px) -->
+<div class="w-full h-3 bg-surface-container-lowest flex items-center justify-between px-1 shrink-0 border-b border-primary">
+<span class="font-label-sm text-[7px] leading-tight uppercase font-bold">CHARGE ETALON</span>
+<span class="font-label-sm text-[7px] leading-tight uppercase">STABLE</span>
+</div>
+<!-- Zone 3: Primary Metric Hero (68px) -->
+<div class="w-full h-[68px] flex flex-col justify-center px-1 shrink-0 bg-surface-container-low">
+<span class="font-label-sm text-[7px] leading-tight text-on-surface-variant uppercase">REF APPLIQUEE</span>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-lg text-[22px] leading-none font-extrabold tracking-tight">50.0</span>
+<span class="font-label-md text-[8px] font-bold">KG</span>
+</div>
+<div class="w-full bg-primary text-on-primary px-1 py-[1px] mt-1 flex items-center justify-between">
+<span class="font-label-sm text-[6px] uppercase">DELT</span>
+<span class="font-label-sm text-[7px] font-bold">+500.7k</span>
+</div>
+</div>
+<!-- Zone 4: Secondary Data Matrix (70px) -->
+<div class="w-full h-[70px] flex flex-col px-1 py-[2px] shrink-0 border-t border-b border-primary bg-surface-container-lowest">
+<div class="flex justify-between items-center py-[1px]">
+<span class="font-label-sm text-[7px] uppercase">ZERO BRUT</span>
+<span class="font-label-sm text-[7px] font-bold">1200450</span>
+</div>
+<div class="flex justify-between items-center py-[1px] border-t border-dotted border-primary">
+<span class="font-label-sm text-[7px] uppercase">CHARGE B.</span>
+<span class="font-label-sm text-[7px] font-bold">1701230</span>
+</div>
+<div class="flex justify-between items-center py-[1px] border-t border-dotted border-primary bg-primary text-on-primary px-[2px]">
+<span class="font-label-sm text-[7px] uppercase">FACT. NOUV</span>
+<span class="font-label-sm text-[7px] font-bold">10015.6</span>
+</div>
+<div class="flex justify-between items-center py-[1px]">
+<span class="font-label-sm text-[7px] uppercase">DIFF %</span>
+<span class="font-label-sm text-[7px] font-bold">+0.31%</span>
+</div>
+</div>
+<!-- Zone 5: Graphic Stepped Register (52px) -->
+<div class="w-full h-[52px] px-1 py-1 flex flex-col justify-between shrink-0 bg-surface-container-low">
+<div class="flex justify-between items-center font-label-sm text-[6px]">
+<span>CONVERGENCE</span>
+<span>OK 100%</span>
+</div>
+<!-- 1-bit Progress Bar with increments -->
+<div class="w-full h-2 border border-primary p-[1px] flex gap-[1px]">
+<div class="bg-primary flex-1"></div>
+<div class="bg-primary flex-1"></div>
+<div class="bg-primary flex-1"></div>
+<div class="bg-primary flex-1"></div>
+<div class="bg-primary flex-1"></div>
+<div class="bg-primary flex-1"></div>
+<div class="bg-primary flex-1"></div>
+<div class="bg-primary flex-1"></div>
+<div class="bg-primary flex-1"></div>
+<div class="bg-primary flex-1"></div>
+</div>
+<span class="font-label-sm text-[6px] tracking-tight uppercase text-center block">MEMOIRE NVS PRETE</span>
+</div>
+<!-- Zone 6: Single-Button Tactile Footer (32px) -->
+<div class="w-full h-8 bg-surface-container-lowest border-t-2 border-primary px-1 py-[2px] flex flex-col justify-center shrink-0">
+<div class="font-label-sm text-[7px] leading-tight uppercase font-bold flex justify-between">
+<span>[●] COURT</span>
+<span>AJUST REF</span>
+</div>
+<div class="font-label-sm text-[7px] leading-tight uppercase font-bold flex justify-between text-primary">
+<span>[—] LONG</span>
+<span>VALIDER</span>
+</div>
+</div>
+</div>
+<!-- Tactile Switch Cue below viewport -->
+<div class="mt-3 flex flex-col items-center">
+<div class="w-3 h-3 rounded-full border border-outline-variant bg-[#d4d6cf] flex items-center justify-center shadow-inner">
+<div class="w-1.5 h-1.5 rounded-full border border-outline"></div>
+</div>
+<span class="font-label-sm text-[6px] text-on-surface-variant font-bold uppercase tracking-widest mt-1">SÉLEC / BOOT</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center mt-space-xs">
+          Rendu miroir synchrone avec le matériel de terrain
+        </span>
+</div>
+<!-- Métrologie Certificat / Local Registry Info Box -->
+<div class="bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs font-headline-sm text-headline-sm uppercase text-primary">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>Certification métrologique</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Le calcul de calibration détermine la pente linéaire exacte <span class="font-bold text-on-surface">K = Δpts / Δkg</span> appliquée au microcontrôleur ESP32.
+        </p>
+<div class="bg-surface-container p-space-sm font-label-md text-label-md flex flex-col gap-[2px]">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Capacité max du silo :</span>
+<span class="font-bold text-primary">5 000 kg</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Échelon de vérification (e) :</span>
+<span class="font-bold text-primary">0.5 kg</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Fréquence de tare auto :</span>
+<span class="font-bold text-primary">Désactivée</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Historique des étalonnages & Certificat Local -->
+<div class="mt-space-lg bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">history</span>
+<span class="font-headline-sm text-headline-sm uppercase tracking-wide text-primary">Historique des étalonnages &amp; certificat local</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-bold">2 sessions archivées en NVS</span>
+</div>
+<!-- Technical Table -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left font-label-md text-label-md">
+<thead>
+<tr class="bg-surface-container-highest text-on-surface uppercase">
+<th class="py-space-xs px-space-sm font-bold">Date &amp; Heure</th>
+<th class="py-space-xs px-space-sm font-bold">Masse Étalon</th>
+<th class="py-space-xs px-space-sm font-bold">Zero Initial</th>
+<th class="py-space-xs px-space-sm font-bold">Facteur d'échelle</th>
+<th class="py-space-xs px-space-sm font-bold">Écart</th>
+<th class="py-space-xs px-space-sm font-bold">Opérateur</th>
+<th class="py-space-xs px-space-sm font-bold text-right">Registre NVS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="bg-surface-container-low text-on-surface">
+<td class="py-space-sm px-space-sm font-bold">02/10/2024 14:22</td>
+<td class="py-space-sm px-space-sm font-bold">50.0 kg</td>
+<td class="py-space-sm px-space-sm font-mono">1 200 450 pts</td>
+<td class="py-space-sm px-space-sm font-bold text-primary">10 015.6 pts/kg</td>
+<td class="py-space-sm px-space-sm text-primary font-bold">+0.31 %</td>
+<td class="py-space-sm px-space-sm">Admin Local (Portail AP)</td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="bg-primary text-on-primary px-space-xs py-[1px] font-label-sm text-label-sm font-bold uppercase">PROPOSÉ</span>
+</td>
+</tr>
+<tr class="text-on-surface">
+<td class="py-space-sm px-space-sm">15/01/2024 09:15</td>
+<td class="py-space-sm px-space-sm font-bold">100.0 kg</td>
+<td class="py-space-sm px-space-sm font-mono">1 198 120 pts</td>
+<td class="py-space-sm px-space-sm font-bold text-on-surface">9 984.2 pts/kg</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant">0.00 % (Réf)</td>
+<td class="py-space-sm px-space-sm">Usine Initiale (Contrôle CE)</td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="bg-surface-container-highest text-on-surface px-space-xs py-[1px] font-label-sm text-label-sm font-bold uppercase">ACTIF</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Actions de Sécurité Container -->
+<div class="mt-space-lg bg-surface-container-high p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">save</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm uppercase block tracking-tight text-primary">Actions de sécurité &amp; persistance NVS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">
+          L'écriture dans la partition NVS de l'ESP32 est définitive et survive aux redémarrages et coupures d'alimentation.
+        </span>
+</div>
+</div>
+<!-- Action Buttons Group -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm shrink-0">
+<!-- Secondary / Cancel Button -->
+<button class="bg-surface-container-lowest text-on-surface hover:bg-surface-container px-space-lg py-space-md font-label-lg text-label-lg uppercase tracking-wider font-bold transition-none cursor-pointer flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">undo</span>
+        Annuler et restaurer l'ancien étalonnage
+      </button>
+<!-- Primary Confirmation Button -->
+<button class="bg-primary text-on-primary hover:bg-surface-tint px-space-xl py-space-md font-label-lg text-label-lg uppercase tracking-wider font-bold transition-none cursor-pointer flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">save_as</span>
+        Enregistrer et graver le nouveau facteur d'échelle en NVS
+      </button>
+</div>
+</div>
+</div></main><footer class="w-full border-t border-outline-variant bg-surface-container-lowest mt-space-xl py-space-md"><div class="max-w-7xl mx-auto px-space-xl flex flex-col md:flex-row items-center justify-between gap-space-xs font-label-md text-label-md text-on-surface-variant"><div class="flex items-center gap-space-xs"><span>Balance Silo DIY ESP32</span><span>•</span><span>ESP-IDF / GxEPD2</span><span>•</span><span>FLASH: 64% LIBRE</span></div><div class="flex items-center gap-space-xs"><span>HEURE SYSTÈME: 20:46 02/10/24</span><span>•</span><span class="inline-block w-2 h-2 bg-primary"></span><span>SYNC OK</span></div></div></footer></body></html>
