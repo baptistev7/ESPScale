@@ -1,0 +1,22 @@
+# =============================================================================
+# ESP Scale — Home Assistant : journal des remplissages
+# =============================================================================
+# Historique cumulé des refills (quand, combien de kg, nb sacs, prix du sac).
+# Le journal est un input_text multiligne (255 caractères : les plus récents
+# d'abord, les plus anciens sont coupés). L'automatisation « Scale - Remplissage »
+# (automations.yaml) y ajoute une entrée à chaque remplissage, détecté ou
+# déclaré. Le détail du dernier remplissage est dans les input_number
+# scale_last_refill_* (helpers.yaml).
+
+input_text:
+  scale_refill_journal:
+    name: "Journal des remplissages"
+    max: 255
+    mode: text
+    icon: mdi:notebook-outline
+
+  scale_refill_last:
+    name: "Dernier remplissage"
+    max: 255
+    mode: text
+    icon: mdi:package-variant-closed
