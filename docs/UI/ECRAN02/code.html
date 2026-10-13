@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="fr" style="width: 100%; min-width: 100%; height: 100%; min-height: 100%; overflow: hidden; margin: 0px; padding: 0px; background-color: rgb(250, 249, 245);" class="stitch-anim-fade-in"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>TTGO T5 ESP32 2.13" E-Paper - Silo Metrology</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for crisp industrial e-paper rendering -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&amp;family=Oswald:wght@500;700&amp;display=swap" rel="stylesheet">
+<!-- BEGIN: Custom Typography & Global Theme Styles -->
+<style data-purpose="e-paper-typography">
+    /* Pixel-crisp 1-bit monochrome rendering */
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: grayscale;
+      image-rendering: pixelated;
+    }
+    .font-industrial {
+      font-family: 'Oswald', 'JetBrains Mono', sans-serif;
+      letter-spacing: -0.02em;
+    }
+    .font-tech {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.01em;
+    }
+  </style>
+<style data-purpose="casing-texture-and-screws">
+    /* Industrial cast resin / enclosure aesthetic */
+    .casing-surface {
+      background-color: #ededeb;
+      box-shadow: 
+        0 25px 60px -15px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+    }
+    .screen-bezel {
+      background-color: #1a1c1d;
+      box-shadow: 
+        inset 0 3px 6px rgba(0,0,0,0.6),
+        0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+    /* Torx / hex screw detailing */
+    .screw-head {
+      width: 9px;
+      height: 9px;
+      background: #c3c5c4;
+      border-radius: 50%;
+      border: 1px solid #7c8082;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255,255,255,0.7);
+      position: relative;
+    }
+    .screw-head::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(35deg);
+      width: 5px;
+      height: 1px;
+      background-color: #4a4d4f;
+    }
+  </style>
+<style data-purpose="epaper-1bit-styles">
+    /* E-Paper panel color and strict 1-bit monochrome look */
+    .epaper-panel {
+      background-color: #faf9f5;
+      color: #000000;
+      /* Precise TTGO T5 2.13" E-Paper dimensions: 122px x 250px (scaled 2x: 244px x 500px) */
+      width: 244px;
+      height: 500px;
+    }
+    .battery-pip {
+      width: 2px;
+      height: 4px;
+    }
+    .battery-body {
+      width: 17px;
+      height: 9px;
+      border: 1.5px solid #000000;
+    }
+    .battery-seg {
+      width: 3px;
+      height: 5px;
+      background-color: #000000;
+    }
+  </style>
+<!-- END: Custom Typography & Global Theme Styles -->
+</head>
+<body class="bg-[#faf9f5] m-0 p-0 overflow-hidden selection:bg-transparent" style="width: 100%; min-width: 100%; height: 100%; min-height: 100%; overflow: hidden; margin: 0px; padding: 0px; background-color: rgb(250, 249, 245); display: flex; flex-direction: column;">
+<!-- BEGIN: Main Enclosure Section -->
+<main class="m-0 p-0 select-none bg-[#faf9f5] text-black w-full" style="width: 100%; height: 100%; overflow: hidden; box-sizing: border-box; display: flex; flex-direction: column;"><article class="flex flex-col justify-between px-6 py-4 relative overflow-hidden text-black select-none h-full w-full" style="width: 100%; height: 100%; box-sizing: border-box;"><header class="w-full grid grid-cols-3 items-center border-b-2 border-black pb-3"><div class="flex justify-start items-center"><span class="text-[22px] font-extrabold tracking-tight leading-none" data-purpose="time-display">20:46</span></div><div class="flex justify-center items-center text-center"><span class="text-[20px] font-extrabold tracking-normal leading-none" data-purpose="date-display">02/10</span></div><div class="flex justify-end items-center" data-purpose="battery-status"><div class="relative flex items-center"><div class="w-[40px] h-[20px] border-2 border-black p-[2px] flex items-center gap-[2px]"><div class="h-full bg-black w-[10px]"></div><div class="h-full bg-transparent w-[10px]"></div><div class="h-full bg-transparent w-[10px]"></div></div><div class="w-[3px] h-[10px] bg-black ml-[1px]"></div></div></div></header><section class="flex flex-col items-center text-center my-2" data-purpose="title-and-status"><h1 class="text-[38px] font-black tracking-[0.2em] leading-none uppercase font-industrial">SILO</h1><div class="flex items-center gap-2 text-[15px] font-extrabold text-black tracking-tight leading-none mt-2" data-purpose="connection-state"><span class="text-[14px] leading-none">●</span><span class="uppercase">CONNECTÉ</span></div></section><div class="w-full bg-black text-[#faf9f5] font-black text-[17px] tracking-[0.14em] py-1.5 px-3 text-center uppercase my-2" data-purpose="alert-banner">NIVEAU BAS</div><div class="w-[76px] h-[25px] bg-black -mt-2 mx-auto" style="clip-path: polygon(0 0, 100% 0, 50% 100%);" data-purpose="banner-pointer"></div><section class="flex flex-col items-center justify-center my-auto py-2" data-purpose="measurement-primary"><div class="flex items-baseline justify-center"><span class="font-black leading-none" style="font-family: 'Oswald', 'JetBrains Mono', sans-serif; font-size: 148px; letter-spacing: -4px; line-height: 0.85;">68</span><span class="font-black uppercase ml-2 leading-none" style="font-family: 'Oswald', sans-serif; font-size: 42px;">KG</span></div></section><section class="w-full flex flex-col items-center mb-3" data-purpose="fill-level-gauge"><div class="w-full flex items-center justify-between text-[18px] font-black mb-2 uppercase"><span class="tracking-wide">CAPACITÉ</span><span class="text-[20px] font-black" data-purpose="percentage-readout">14 %</span></div><div aria-valuemax="100" aria-valuemin="0" aria-valuenow="14" class="w-full h-7 border-2 border-black p-[2px] flex items-center bg-transparent" role="progressbar"><div class="h-full bg-black" style="width: 14%;"></div></div><div class="w-full text-center mt-3 text-[15px] font-extrabold tracking-tight uppercase" data-purpose="secondary-measurement-status">[ REMPLISSAGE CONSEILLÉ ]</div></section><footer class="w-full border-t-2 border-black pt-2 pb-1 mt-auto flex flex-col text-[16px] font-black" data-purpose="interaction-semantics"><div class="flex items-center justify-between py-1.5"><span class="flex items-center gap-2 uppercase tracking-tight font-black"><span class="text-[14px] leading-none">●</span><span class="">COURT</span></span><span class="text-right uppercase tracking-tight font-black">MESURER</span></div><div class="flex items-center justify-between py-1.5 border-t border-black/30 pt-1.5"><span class="flex items-center gap-2 uppercase tracking-tight font-black"><span class="text-[18px] leading-none font-black">—</span><span class="">LONG</span></span><span class="text-right uppercase tracking-tight font-black">OPTIONS</span></div></footer></article></main>
+<!-- END: Main Enclosure Section -->
+
+
+
+
+</body><div id="snapdom-measure-slot" aria-hidden="true" style="position: absolute; left: -99999px; top: 0px; width: 0px; height: 0px; overflow: hidden; opacity: 0; pointer-events: none; contain: size layout style;"></div></html>

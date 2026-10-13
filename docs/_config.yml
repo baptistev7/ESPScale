@@ -1,0 +1,25 @@
+title: ESP Scale
+description: Balance connectée pour silo à granulés — ESP32, e-paper, MQTT, Home Assistant
+url: https://baptistev7.github.io
+baseurl: /ESPScale
+lang: fr
+
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+
+# Pages en .html : les images en chemin relatif (img/…, screens/…) restent valides.
+permalink: /:path/:basename:output_ext
+relative_links:
+  enabled: true
+  collections: false
+
+aux_links:
+  Code source: https://github.com/baptistev7/ESPScale
+search_enabled: true
+
+# Maquettes de design : pas dans le site.
+exclude:
+  - UI

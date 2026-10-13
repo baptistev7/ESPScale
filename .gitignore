@@ -1,0 +1,43 @@
+# PlatformIO
+.pio/
+
+# Build artifacts
+.build/
+
+# Python (outils de dev)
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch
+.vscode/settings.json
+
+# Editor
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Old/main files
+*.bak
+*.old
+main_original.cpp
+preview/
+__pycache__/
+
+# Mesures PPK2 (tools/ppk2_measure.py)
+ppk2_out/
+
+# Réglages locaux (identifiants, hôtes) et fichiers d’outils personnels
+ha/sync.local.env
+.commandcode/
+.vscode/
