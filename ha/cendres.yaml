@@ -1,0 +1,85 @@
+# =============================================================================
+# ESP Scale — Home Assistant : vidange des cendres tous les 500 kg brûlés
+# =============================================================================
+# Le compteur repart de zéro quand on acquitte : bouton « Cendres vidées » du
+# dashboard, ou bouton d'action de la notification du téléphone. Fermer la
+# notification de la cloche ne remet PAS le compteur à zéro (HA ne le signale pas).
+input_number:
+  scale_ash_threshold_kg:
+    name: "Cendres : seuil (kg brûlés)"
+    unit_of_measurement: "kg"
+    min: 50
+    max: 5000
+    step: 10
+    mode: box
+  # Valeur du cumul brûlé au dernier vidage (écrit par l'automatisation).
+  scale_ash_baseline_kg:
+    name: "Cendres : cumul au dernier vidage"
+    unit_of_measurement: "kg"
+    min: 0
+    max: 1000000
+    step: 0.1
+    mode: box
+
+input_button:
+  scale_ash_emptied:
+    name: "Cendres vidées"
+    icon: mdi:broom
+
+template:
+  - sensor:
+      # Si le cumul a été remis à zéro (nouveau départ de l'historique), il passe
+      # sous le dernier vidage : on repart alors du cumul lui-même.
+      - name: "Scale Cendres depuis le vidage"
+        unique_id: scale_ash_since_kg
+        unit_of_measurement: "kg"
+        icon: mdi:fire-circle
+        state: >
+          {% set total = states('input_number.scale_consumption_total_kg') | float(0) %}
+          {% set base = states('input_number.scale_ash_baseline_kg') | float(0) %}
+          {{ ((total - base) if total >= base else total) | round(1) }}
+
+automation:
+  - alias: "Scale - Cendres à vider"
+    id: scale_ash_alert
+    trigger:
+      - platform: template
+        value_template: >
+          {{ states('sensor.scale_cendres_depuis_le_vidage') | float(0)
+             >= states('input_number.scale_ash_threshold_kg') | float(500) }}
+    action:
+      - variables:
+          message: >
+            {{ states('sensor.scale_cendres_depuis_le_vidage') | float(0) | round(0) | int }} kg
+            brûlés depuis le dernier vidage : pense à vider les cendres.
+      - service: notify.mobile_app_<ton_telephone>
+        data:
+          title: "Cendres à vider"
+          message: "{{ message }}"
+          data:
+            actions:
+              - action: SCALE_ASH_EMPTIED
+                title: "Cendres vidées"
+      - service: persistent_notification.create
+        data:
+          notification_id: scale_ash_alert
+          title: "Cendres à vider"
+          message: "{{ message }} Appuie sur « Cendres vidées » (dashboard) pour remettre le compteur à zéro."
+
+  - alias: "Scale - Cendres vidées"
+    id: scale_ash_emptied
+    trigger:
+      - platform: state
+        entity_id: input_button.scale_ash_emptied
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: SCALE_ASH_EMPTIED
+    action:
+      - service: input_number.set_value
+        target: { entity_id: input_number.scale_ash_baseline_kg }
+        data:
+          value: "{{ states('input_number.scale_consumption_total_kg') | float(0) }}"
+      - service: persistent_notification.dismiss
+        data:
+          notification_id: scale_ash_alert
